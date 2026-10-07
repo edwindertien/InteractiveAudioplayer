@@ -8,6 +8,10 @@ or the start tag — changes what that wearer hears: the audio, a narration laye
 sound effects and a haptic channel that is felt through the body. The audio itself is a single
 8-channel WAV file on an SD card inside each player.
 
+![hand unit](docs/handunit.jpg)
+
+![audio player](docs/audioplayer.jpg)
+
 This README is in two parts.
 
 * **Part I — Operation manual:** preparing audio, the SD card and the configuration files,
