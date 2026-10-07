@@ -217,7 +217,7 @@ def system_overview():
     parts = [("PN532 NFC reader", "UART 115200 · GPIO 5/6 · RST 10"),
              ("VL53L0X distance sensor", "I²C · GPIO 7/8 · XSHUT 1"),
              ("Vibration motor", "PWM 20 kHz · GPIO 2"),
-             ("16-LED ring (WS2812B)", "GPIO 4 — tap and proximity feedback"),
+             ("5-LED strip (WS2812B)", "GPIO 4 — tap and proximity feedback"),
              ("Status LED", "GPIO 48 — link / pairing / battery"),
              ("Button", "GPIO 9 — hold 2 s: sleep · tap: pairing"),
              ("LiPo battery", "ADC on GPIO 3 (divider)")]
@@ -560,13 +560,13 @@ def boot_hand():
         {"t": "Wait for the button to be released", "d": ["a button wake is confirmed, then the real start-up continues"]},
         {"t": "Motor and distance sensor", "d": ["motor PWM · VL53L0X XSHUT toggle + init",
                                                   "this unit's stored tof settings (if any) are applied"]},
-        {"t": "LED ring, status LED, battery", "d": ["16-LED ring at brightness 40 · status LED (GPIO 48)",
+        {"t": "LED strip, status LED, battery", "d": ["5-LED strip at brightness 40 · status LED (GPIO 48)",
                                                       "battery offset loaded; USB or battery detected"]},
         {"t": "NFC reader", "d": ["PN532 reset on GPIO 10, then UART init; UIDs go to a queue"]},
         {"t": "ESP-NOW", "d": ["Wi-Fi station mode, ESP-NOW init, stored pairing loaded from flash",
                                "no pairing → status LED red until you pair (see pairing figure)"]},
-        {"t": "Ready signal", "d": ["ring solid GREEN: NFC and distance sensor OK · AMBER: one is missing",
-                                   "two short motor pulses, ~300 ms, then the ring goes dark"]},
+        {"t": "Ready signal", "d": ["strip solid GREEN: NFC and distance sensor OK · AMBER: one is missing",
+                                   "two short motor pulses, ~300 ms, then the strip goes dark"]},
     ]
     loop = ["power: hold the button 2 s → sleep · tap → confirm a pending pairing",
             "battery checked every 10 s: low < 3.6 V (orange), critical < 3.3 V (sleep)",
@@ -576,7 +576,7 @@ def boot_hand():
             "vibration follows proximity (about 20-300 mm), when idle",
             "NFC UID from the queue → ESP-NOW NFC message to the body",
             "if no touch active: motor double-click, TOUCH message (= confirmed), white flash",
-            "proximity message every 100 ms · LED ring at 25 fps · serial commands"]
+            "proximity message every 100 ms · LED strip at 25 fps · serial commands"]
     s = boot_flow("boot_hand", "Hand unit — startup / wake sequence, then the main loop",
                   "setup() on the ESP32-S3; sleep and wake use the button on GPIO 9.", "hand", steps, "loop() — repeated continuously", loop)
     s.save()
@@ -788,8 +788,8 @@ def led_language():
 
     s.text(24, y, "Other lights", 14, INK, weight="bold")
     y += 14
-    others = [("hand unit · ring", "solid green at start-up", "NFC reader and distance sensor both OK  (amber: one is missing)"),
-              ("hand unit · ring", "white flash on a tap", "the tag was accepted as a connection"),
+    others = [("hand unit · LED strip", "solid green at start-up", "NFC reader and distance sensor both OK  (amber: one is missing)"),
+              ("hand unit · LED strip", "white flash on a tap", "the tag was accepted as a connection"),
               ("hand unit · vibration", "double click on a tap · gentle buzz near a hand", "intensity follows the distance, about 20-300 mm"),
               ("player · ring", "the chapter's own mood", "level / heartbeat follow the live haptic signal; each chapter sets its colour and entry flash"),
               ("player · ring", "dark", "the show is over — only the start tag brings it back"),
@@ -844,7 +844,7 @@ def experience_map():
 PCB_FILES = [
     ("pcb_player_schematic",    "Player PCB - schematic",     "Teensy 4.1 carrier: PCM5102A, MAX98357A, LED ring, bridge UART"),
     ("pcb_player_board",        "Player PCB - board layout",  "top / bottom view of the finished layout"),
-    ("pcb_hand_unit_schematic", "Hand unit PCB - schematic",  "ESP32-S3 SuperMini, PN532, VL53L0X, motor driver, LED ring, battery"),
+    ("pcb_hand_unit_schematic", "Hand unit PCB - schematic",  "ESP32-S3 SuperMini, PN532, VL53L0X, motor driver, LED strip, battery"),
     ("pcb_hand_unit_board",     "Hand unit PCB - board layout", "top / bottom view of the finished layout"),
 ]
 

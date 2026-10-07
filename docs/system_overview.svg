@@ -37,7 +37,7 @@
 <text x="316.0" y="239.4" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="12" fill="#7c2d12" text-anchor="start" font-weight="bold">Vibration motor</text>
 <text x="316.0" y="258.9" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="10.5" fill="#1f2937" text-anchor="start" font-weight="normal">PWM 20 kHz · GPIO 2</text>
 <rect x="306.0" y="277.7" width="318.0" height="47.2" rx="9" fill="#ffedd5" stroke="#ea580c" stroke-width="1.6"/>
-<text x="316.0" y="294.7" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="12" fill="#7c2d12" text-anchor="start" font-weight="bold">16-LED ring (WS2812B)</text>
+<text x="316.0" y="294.7" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="12" fill="#7c2d12" text-anchor="start" font-weight="bold">5-LED strip (WS2812B)</text>
 <text x="316.0" y="314.2" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="10.5" fill="#1f2937" text-anchor="start" font-weight="normal">GPIO 4 — tap and proximity feedback</text>
 <rect x="306.0" y="332.9" width="318.0" height="47.2" rx="9" fill="#ffedd5" stroke="#ea580c" stroke-width="1.6"/>
 <text x="316.0" y="349.9" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="12" fill="#7c2d12" text-anchor="start" font-weight="bold">Status LED</text>

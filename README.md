@@ -2,17 +2,17 @@
 ### Seven wearable players · Teensy 4.1 · 7.1 multichannel audio · NFC hand units · haptics
 
 An embedded system for immersive, location-and-encounter based experiences. Each of up to
-seven wearers carries a **hand unit** (NFC reader, distance sensor, vibration motor, LED ring).
+seven wearers carries a **hand unit** (NFC reader, distance sensor, vibration motor, LED strip).
 Touching a hand unit to an **NFC tag** — another person's tag, a narrator tag, an overlay tag
 or the start tag — changes what that wearer hears: the audio, a narration layer, overlays,
 sound effects and a haptic channel that is felt through the body. The audio itself is a single
 8-channel WAV file on an SD card inside each player.
 
+This README is in two parts.
+
 ![hand unit](docs/handunit.jpg)
 
 ![audio player](docs/audioplayer.jpg)
-
-This README is in two parts.
 
 * **Part I — Operation manual:** preparing audio, the SD card and the configuration files,
   pairing the units, and running a show. Everything here needs no programming.
@@ -58,7 +58,7 @@ Each player is a set of three devices plus the wearer's tags:
 
 | Device | What it is | What it does |
 |---|---|---|
-| **Hand unit** | ESP32-S3 SuperMini + PN532 NFC + VL53L0X distance sensor + vibration motor + 16-LED ring + LiPo | Reads tags, feels the distance to a hand, gives instant feedback (vibration, light) and reports to the body bridge |
+| **Hand unit** | ESP32-S3 SuperMini + PN532 NFC + VL53L0X distance sensor + vibration motor + 5-LED strip + LiPo | Reads tags, feels the distance to a hand, gives instant feedback (vibration, light) and reports to the body bridge |
 | **Body bridge** | ESP32-S3 SuperMini | Receives the hand unit's wireless data (ESP-NOW) and passes it to the Teensy over a two-wire serial link; sends a heartbeat back |
 | **Player** | Teensy 4.1 + SD card + PCM5102A (headphones) + MAX98357A (haptics) + LED ring | Plays the experience, decides what a tag means, drives headphones and the haptic transducer |
 
@@ -503,6 +503,9 @@ confirmed end to end when this manual was written — if it fails, use method A 
 | Set a peer by hand | `espnow bind <MAC>` | — |
 | This unit's MAC | printed at boot (`[ESPNOW] MAC: …`) | `mac` |
 
+`espnow bind <MAC>` sets only the **hand unit's** side of the pairing. The body bridge ignores data from a hand unit it has not
+paired with (by `espnow scan` or the buttons), so `bind` alone is not a way to pair. *(Read from the code; not tested.)*
+
 [![LED language](docs/led_language.png)](docs/led_language.svg)
 
 *What the status LEDs mean on the hand unit and the body bridge.*
@@ -518,7 +521,7 @@ Label each pair (a sticker with the player number on both) — the units are oth
 * **Hand unit.** Connecting the battery or pressing reset makes the unit go **straight back to
   sleep**; **press the button** to start it. Once it is running, **hold the button for 2 seconds** to
   put it to sleep (the status LED flashes orange to confirm); press it again to wake. At start-up
-  the ring lights **green** (NFC reader and distance sensor both found) or **amber** (one is
+  the LED strip lights **green** (NFC reader and distance sensor both found) or **amber** (one is
   missing), with two short vibration pulses.
 * **Body bridge.** Powered whenever its supply is on; it has no sleep mode.
 * **Player (Teensy).** Starts playing the waiting room as soon as it is powered — no tag needed.
@@ -618,7 +621,7 @@ Values set from the console are not saved; put the final value in the configurat
 | `status` · `debug` | all sensor readings · dump all state |
 | `stream` | toggle a live distance stream |
 | `scan` | I²C scan |
-| `rainbow` · `solid <r> <g> <b>` · `bright <0-255>` · `off` · `idle` | ring test modes |
+| `rainbow` · `solid <r> <g> <b>` · `bright <0-255>` · `off` · `idle` | LED test modes |
 | `motor <pulses>` | trigger a vibration burst |
 | `nfc` | re-run NFC init and poll for 3 s |
 | `sleep` | go to deep sleep |
@@ -660,6 +663,7 @@ so on battery the reading is the cell voltage minus about 0.3 V. The firmware ad
 | No audio and `[Audio] ERROR: experience.wav not found` | file missing or misnamed | check the card; run `dot_clean` |
 | Stuttering / clicking audio | slow card, or hidden macOS files | SanDisk A1/A2 card; `dot_clean` |
 | Hand unit "does nothing" after connecting power | it goes to sleep after a reset | press the button once |
+| Start-up LEDs are **amber**, or `nfc` finds no reader | the PN532 is not in UART mode, is miswired, or its reset line is wrong | DIP switches SEL0 = SEL1 = LOW; wiring GPIO 5 / 6 / 10 ([11.2](#112-pinouts)); the init sequence is in [Context.md](Context.md) |
 | Status LED **red** | not paired | pair ([6](#6-pairing-hand-units-and-body-bridges)) |
 | Status LED **yellow** | paired, but the other unit is not answering | is the other unit on? in range? same pair? |
 | LED colours swapped (red shows green) | a **v0.0.2** SuperMini board (RGB order); the standard board is GRB | use the standard board, or build with `-DSTATUS_LED_ORDER=RGB` |
@@ -692,10 +696,10 @@ so on battery the reading is the cell voltage minus about 0.3 V. The firmware ad
 | Headphones with built-in amplifier | an analog potentiometer reduces the level |
 | 16-LED ring (SK6812 / WS2812) | on the player, pin 14 |
 | 2 × ESP32-S3 SuperMini | one for the hand unit, one for the body bridge. Use the **standard** boards, not v0.0.2 (different LED colour order and USB wiring) |
-| PN532 NFC module | hand unit; set its DIP switches for **UART** mode |
+| PN532 NFC module | hand unit; DIP switches **SEL0 = LOW, SEL1 = LOW** (UART / HSU mode) |
 | VL53L0X time-of-flight module | hand unit; distance to a hand |
-| Vibration motor + driver | hand unit |
-| 16-LED WS2812B ring | hand unit |
+| Vibration motor | hand unit; switched by an N-channel MOSFET from a PWM pin |
+| 5-LED WS2812B strip | hand unit; an 8-LED strip cut down to 5 (the player has its own 16-LED ring) |
 | LiPo battery (1S, 3.0–4.2 V) | hand unit; charged through the SuperMini's TP4054 |
 | Push buttons | hand unit (GPIO 9), body bridge (GPIO 9) |
 | SanDisk Ultra / Extreme A1 or A2 SD card | one per player |
@@ -717,13 +721,23 @@ so on battery the reading is the cell voltage minus about 0.3 V. The firmware ad
 
 | Function | GPIO |
 |---|---|
-| LED ring (WS2812B, 16, GRB) | 4 |
+| LED strip (WS2812B, 5 LEDs, GRB) | 4 |
 | Vibration motor (PWM 20 kHz, 8 bit) | 2 |
 | VL53L0X: SDA / SCL / XSHUT | 7 / 8 / 1 |
 | PN532 (UART 115200): TX / RX / RST | 6 / 5 / 10 |
 | Status LED (onboard RGB) | 48 |
 | Button (to GND, internal pull-up) | 9 |
 | Battery divider (1:2, equal resistors) | 3 |
+
+**Battery divider.** Two equal resistors (100 kΩ each according to `Config.h`; a comment in `PowerManager.h` says 220 kΩ — measure
+your board), mid-point to GPIO 3. The original design notes show a 100 nF capacitor from GPIO 3 to ground. The top of the divider is on
+the SuperMini's **5 V rail**, not directly on the cell — see [Context.md](Context.md) and [section 9.2](#92-hand-unit-serial-monitor-115200-baud).
+
+**Hand-unit LED strip.** The hand unit's ring was replaced by a strip of **5 WS2812B LEDs**, an 8-LED strip cut down to size. Cut it at the
+strip's marked cut line (between two LEDs) and keep the end with the data-in arrow towards the ESP32 — as with any WS2812 strip, only the
+first LED's data-in is wired (to GPIO 4, with 5 V and GND). Then set `LED_COUNT` in `ESP32handUnit/src/Config.h` to **5** and reflash.
+The firmware depends on the count only through `LED_COUNT` (the array, the driver setup, and the spacing of the idle wave and of the
+`rainbow` test, which is `256 / LED_COUNT`). The 16-LED ring described for the **player** (Teensy pin 14) is a different part and is unchanged.
 
 **Body bridge — ESP32-S3 SuperMini**
 
@@ -758,7 +772,7 @@ bridge UART.
 | [![Player schematic](docs/pcb_player_schematic.png)](docs/pcb_player_schematic.pdf) | [![Player board](docs/pcb_player_board.png)](docs/pcb_player_board.pdf) |
 | [PDF](docs/pcb_player_schematic.pdf) | [PDF](docs/pcb_player_board.pdf) |
 
-**Hand unit PCB** — ESP32-S3 SuperMini, PN532, VL53L0X, motor driver, LED ring and battery.
+**Hand unit PCB** — ESP32-S3 SuperMini, PN532, VL53L0X, motor driver, LED strip and battery.
 
 | Schematic | Board layout |
 |---|---|
@@ -863,8 +877,18 @@ pio run -t clean              # clean build
 │   ├── RamPlayer.h                 short effects held in RAM
 │   └── UsbMaintenance.h            USB MTP maintenance mode
 ├── ESP32handUnit/                  hand-unit firmware (own platformio.ini)
-│   └── src/  main.cpp Config.h EspNow.h Proximity.h NfcTask.h Motor.h LedRing.h Statusled.h
-│             PowerManager.h TouchManager.h Cli.h
+│   └── src/
+│       ├── main.cpp                setup() + loop()
+│       ├── Config.h                pins and parameters
+│       ├── Motor.h                 esp_timer-driven bursts + proximity vibration
+│       ├── Proximity.h             VL53L0X, non-blocking, `tof` diagnostics
+│       ├── TouchManager.h          connection state machine (IDLE / RELEASED)
+│       ├── LedRing.h               ring animations
+│       ├── NfcTask.h               PN532 over UART: a FreeRTOS task on core 0 + a queue
+│       ├── EspNow.h                ESP-NOW pairing and send functions
+│       ├── Statusled.h             GPIO 48 status indicator
+│       ├── PowerManager.h          deep sleep, button, battery
+│       └── Cli.h                   serial command handler
 ├── ESP32bodyBridge/                body-bridge firmware (own platformio.ini)
 │   └── src/  main.cpp Config.h EspNow.h PairButton.h Statusled.h Cli.h
 ├── configs/
@@ -940,6 +964,17 @@ the end chapter; otherwise `returns_to` (with the *ready* sound when it is `base
 The body bridge accepts data **only from the paired hand**; everything else is counted as "foreign" and
 ignored. A link is considered up while packets keep arriving (2 s on the body, 3.5 s on the hand).
 
+**Packets.** All ESP-NOW payloads are packed structs:
+
+| Struct | Layout | Used by |
+|---|---|---|
+| `HandPacket` | `type` (1 byte) · `distMm` (2 bytes) · `touchState` (1 byte) · `nfcUid` (20-byte text) = 24 bytes | `MSG_PROXIMITY` (distance, touch state) · `MSG_NFC` (+ UID) · `MSG_TOUCH` (touch state 1 + UID) |
+| `PingPacket` | `type` (1 byte) · `deviceId` (16-byte text) = 17 bytes | `MSG_PING` / `MSG_PONG` |
+| heartbeat | `type` only (1 byte) | `MSG_HEARTBEAT` |
+
+The pairing is stored in flash by each unit: the hand unit under the preferences namespace `handunit`, the body bridge under
+`bodybridge`, key `handMac` (6 bytes).
+
 **Body bridge → Teensy**, newline-terminated JSON at 115200 baud:
 
 ```json
@@ -975,7 +1010,11 @@ request/acknowledge.
 
 The unit runs at 80 MHz (240 MHz ran hot). A reset or power-up goes to deep sleep; the button (GPIO 9) wakes
 it. Before sleeping the motor, LEDs and radio are stopped, and the PN532 reset and button lines are held so
-they do not float. The battery monitor is explained in [section 9.2](#92-hand-unit-serial-monitor-115200-baud).
+they do not float. In sleep the PN532 is held in reset (GPIO 10 low, latched) and the VL53L0X in hardware standby (XSHUT low, latched). The original
+design notes estimate the sleep current at about 20 µA (ESP32) + 5 µA (PN532) + 5 µA (VL53L0X); those are estimates from the
+development notes, not measurements made for this documentation, and the onboard WS2812 and the battery divider add their own drain.
+`NFC_SLEEP_MS = 0` keeps the PN532 always on: letting it power down between polls would save about 75 mA but needs a wake-up preamble
+after every sleep, so it is deferred. The battery monitor is explained in [section 9.2](#92-hand-unit-serial-monitor-115200-baud).
 
 ### 15.7 The distance sensor
 
@@ -983,6 +1022,41 @@ The VL53L0X is read without blocking. A reading counts when it lies between `tof
 that is crosstalk) and `tof max` (2000 mm) and the sensor accepted it. Vibration follows proximity between
 about 20 and 300 mm. `tof raw` shows, per measurement, the device status code, the return signal rate, the
 ambient rate and the SPAD count, which is how a weak unit is diagnosed.
+
+### 15.8 Hand unit: touch, vibration and light
+
+| Situation | LED strip | Vibration |
+|---|---|---|
+| Start-up | solid **green** (NFC and distance sensor found) or **amber** (one missing), for 300 ms | two pulses (duty 160, 60 ms on / 40 ms off) |
+| Idle, nothing nearby | **teal**, a travelling sine wave, one full cycle spread over the strip; a cycle takes 3.84 s (an integer `sin8` lookup — see Context.md for why) | off |
+| A hand approaches (valid reading between `PROX_NEAR_MM` 20 and `PROX_FAR_MM` 300 mm) | colour shifts from teal (0, 140, 200) towards warm red (220, 40, 0) with proximity | ramps up **quadratically**: `t² × MOTOR_MAX`, where *t* is 1 at 20 mm and 0 at 300 mm (`MOTOR_MAX` 200 of 255) |
+| A tag is read while no touch is active | **white flash**, 80 ms (the loop pauses for those 80 ms) | **double click**: 2 pulses, duty 230, 40 ms on / 30 ms off |
+| Silence period after a connection (`SILENCE_MS`, 3 s) | stays teal, no colour shift | off, whatever the distance; further tags are ignored (`[Touch] Ignored — still in silence`) |
+| Release | back to idle only when **both** the silence has elapsed **and** the sensor no longer sees a valid distance (`[Touch] Ready — new connection possible`) | — |
+
+### 15.9 Hand unit: tasks and cores
+
+* **Core 0:** `nfcTask`, a FreeRTOS task (stack 4096, priority 1). It polls the PN532 over UART with a 50 ms timeout and posts UIDs to a queue.
+* **Core 1:** the Arduino `loop()` — distance sensor, LED ring, motor, ESP-NOW, serial commands and the touch state machine.
+* **`esp_timer`:** times the motor bursts independently of both cores, so a burst is precise even while an NFC poll blocks.
+* **One I²C bus** (`Wire`, GPIO 7/8) carries the VL53L0X only; the PN532 is on UART1 (GPIO 5 RX, 6 TX), which avoids I²C conflicts.
+* All modules are header-only files included from `main.cpp`.
+
+### 15.10 Hand unit: tunables
+
+In `ESP32handUnit/src/Config.h` unless noted. Change them in the source and reflash.
+
+| Define | Default | Meaning |
+|---|---|---|
+| `POWER_MANAGEMENT` | `1` | `0` = always on (debugging), `1` = full sleep / wake |
+| `NFC_SLEEP_MS` | `0` | PN532 power-down between polls: `0` = always on, `200` ≈ 8 mA average (deferred, see 15.6) |
+| `SILENCE_MS` (`TouchManager.h`) | `3000` | motor silence and blocked new connections after a connection |
+| `PROX_FAR_MM` / `PROX_NEAR_MM` | `300` / `20` | vibration starts at the far value and reaches its maximum at the near value |
+| `MOTOR_FREQ` / `MOTOR_MAX` | `20000` / `200` | PWM frequency (20 kHz is inaudible) / maximum duty, 0–255 |
+| `LED_COUNT` | `5` | LEDs on the hand unit's strip — must equal the real count (the source default was `16`, for the old ring) |
+| `USE_LONG_PRESS` | `1` | `1` = hold the button `POWER_HOLD_MS` (2000) to sleep, `0` = two taps within `DOUBLE_PRESS_MS` (500) |
+| `VBAT_LOW_MV` / `VBAT_CRIT_MV` | `3600` / `3300` | low-battery pulse / automatic sleep, on the **corrected** cell voltage |
+| `VBAT_OFFSET_MV` / `VBAT_USB_MV` (`PowerManager.h`) | `320` / `4300` | diode correction added to the rail reading / above this the rail is USB |
 
 ---
 

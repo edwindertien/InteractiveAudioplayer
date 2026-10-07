@@ -26,7 +26,7 @@ Legend: ❌ tried and abandoned · ✅ works and is kept · ⚠️ open / unreso
 * **Player:** Teensy 4.1. Headphone audio from a PCM5102A on I²S 1, haptics from a MAX98357A on I²S 2.
   One 8-channel WAV on the built-in SD slot; short effects in RAM; one LED ring that follows the haptic
   signal. USB gives a serial console and an MTP maintenance mode.
-* **Wearer:** an ESP32-S3 hand unit (PN532 NFC, VL53L0X distance, vibration motor, LED ring, LiPo).
+* **Wearer:** an ESP32-S3 hand unit (PN532 NFC, VL53L0X distance, vibration motor, a 5-LED strip, LiPo).
 * **Link:** hand unit ⇄ body bridge (ESP32-S3) over ESP-NOW; body bridge → Teensy over UART as JSON lines.
 * **Experience:** ten 45-second chapters; tags have roles (start, person, narrator, overlay) with spares;
   a timed ending wraps the show up and switches the player off.
@@ -378,6 +378,98 @@ antenna orientation and test with a different board before touching software.
 * Pairing: `espnow scan` (PING broadcast → PONG, both store the MAC) and a button method (body long-press 2 s →
   PAIR_REQUEST broadcast every 300 ms for 30 s → the hand's tap → PAIR_ACK).
 
+### ✅ PN532 over UART (Seeed library): the initialisation that works
+
+Pins: ESP32 TX **GPIO 6** → PN532 RXD, ESP32 RX **GPIO 5** ← PN532 TXD, RST **GPIO 10** (GPIO 21 is not populated on the SuperMini).
+DIP switches SEL0 = SEL1 = LOW.
+
+```cpp
+#define NFC_INTERFACE_HSU
+#include <PN532_HSU.h>
+#include <PN532_HSU.cpp>   // include the .cpp directly — build flags do not reliably reach library sources
+#include <PN532.h>
+
+HardwareSerial MySerial(1);
+PN532_HSU pn532hsu(MySerial);   // NO rx/tx arguments in the constructor
+PN532     nfc(pn532hsu);
+
+gpio_hold_dis((gpio_num_t)NFC_RST_PIN);        // release the sleep hold first
+gpio_hold_dis((gpio_num_t)NFC_TX_PIN);
+pinMode(NFC_RST_PIN, OUTPUT); digitalWrite(NFC_RST_PIN, LOW);   // 100 ms, without delay()
+pinMode(NFC_RST_PIN, INPUT);                   // high-Z: the module's own pull-up brings RST high
+// wait ~50 ms for the PN532 to boot
+MySerial.begin(NFC_BAUD, SERIAL_8N1, NFC_RX_PIN, NFC_TX_PIN);
+nfc.begin();                                   // AFTER MySerial.begin — it keeps our pins
+uint32_t ver = nfc.getFirmwareVersion();
+```
+
+* **Why `INPUT` and not `digitalWrite(HIGH)`:** after deep sleep with the hold on RST, releasing the hold and then `pinMode(OUTPUT)` +
+  `digitalWrite(HIGH)` sometimes fails (an output-latch race). High-Z lets the module's pull-up do it reliably.
+* **Why include `PN532_HSU.cpp`:** the Seeed library wraps its implementation in `#ifdef NFC_INTERFACE_HSU`, and a `-D` build flag does
+  not reliably reach the library's own `.cpp`.
+* **Why `nfc.begin()` last:** `PN532_HSU::begin()` calls `_serial->begin(115200)` with no pins, which on ESP32 means "keep the current
+  pins". Set the pins with `MySerial.begin(...)` first, then `nfc.begin()`.
+* The re-init used by the `nfc` command and by recovery (`nfcReinit()`) simply pulses RST low then high with `digitalWrite`; the
+  high-Z release is the boot path after a sleep.
+* **Not needed:** the 16 × `0x55` wake-up preamble, as long as RST is wired — after a clean reset pulse the PN532 boots into a known state.
+* **`NFC_SLEEP_MS > 0`** (PN532 power-down between polls) would save about 75 mA but needs that preamble after every sleep; a flag
+  (`inPowerDown`) in `nfcTask` would avoid sending it to an awake chip. Deferred; it is 0 (always on) for reliability.
+
+### ✅ No double-precision maths next to the NFC task
+
+A ring animation that used `sinf()` with `TWO_PI` (a **double** constant) made the NFC task on core 0 fail: the ESP32-S3's FPU is
+single-precision only, so the double arithmetic ran in software and disturbed task scheduling. Replacing the per-LED `sinf()` by
+FastLED's `sin8()` (an integer lookup table) fixed it:
+
+```cpp
+uint8_t s = sin8(phaseBase + i * (256 / LED_COUNT));
+```
+
+### ✅ Order matters: clear the LEDs before stopping Wi-Fi
+
+`FastLED.show()` uses the RMT peripheral, and `esp_wifi_stop()` resets RMT. Always blank and show the LEDs *before* stopping Wi-Fi when
+going to sleep, never after.
+
+### ✅ Motor: 20 kHz, and bursts beat proximity
+
+25 kHz does not work on this board; 20 kHz is inaudible and works. Bursts are timed by an `esp_timer` ISR, independent of `loop()` and of
+NFC polling. `motorProxSet()` (continuous proximity vibration) is ignored while a burst is active.
+
+### ✅ ESP-NOW "send success" is not delivery
+
+The `onSent` callback with `ESP_NOW_SEND_SUCCESS` only says the frame was *transmitted*, not received. True link state comes from the
+body bridge's heartbeat (every 1 s): the hand unit's status LED is green while heartbeats arrive and reverts to yellow after
+`LINK_TIMEOUT` (**3.5 s** in the current code; the old notes said 2 s).
+
+### ✅ Battery ADC: use `analogReadMilliVolts()`
+
+It applies the eFuse-calibrated reference. At 11 dB attenuation the ADC saturates near 3.1 V, not 3.3 V, so the raw formula
+`analogRead() × 3300 / 4095` overestimates by about 7 %. (An older note says the reading was still ~10 % high even then; that was before
+the real cause — the divider is on the 5 V rail — was found.)
+
+### ✅ One I²C bus
+
+The VL53L0X uses the global `Wire` (the Pololu library cannot be pointed at another bus); the PN532 is on UART precisely to avoid I²C
+contention. An earlier attempt with two buses (`Wire` + `Wire1`) made the PN532 unreliable on `Wire1` under concurrent access.
+
+### ✅ Heat reduction (hand unit and body bridge)
+
+The ESP32-S3 ran hot at the default 240 MHz. Applied to both devices: `setCpuFrequencyMhz(80)` as the first line of `setup()`, and
+`vTaskDelay(pdMS_TO_TICKS(1))` as the last line of `loop()` so the idle task can light-sleep the CPU. The peripherals (UART, I²C, RMT,
+LEDC, `esp_timer`, ADC) use their own clocks and are unaffected; 10 ESP-NOW packets a second is trivial at 80 MHz.
+
+**Wi-Fi modem sleep — do not copy the old advice.** The first notes said to add `WiFi.setSleep(true)` after `WiFi.disconnect()`. The
+code that shipped had `WiFi.setSleep(false)` with a leftover comment still saying "modem sleeps", i.e. it had been reversed at some
+point; the current file sets nothing at all. Re-enabling modem sleep needs a heartbeat-reliability test first.
+
+### ✅ Hand-unit LED: a strip of 5, not a ring
+
+The hand unit's ring (16 LEDs in the source default, 8 in the first notes) was replaced by a strip of 5 WS2812B LEDs cut from an 8-LED strip.
+The firmware depends on the count only through `LED_COUNT`: the array, `addLeds`, `fill_solid`, the idle wave spacing `256 / LED_COUNT`
+and the rainbow test. With 5 LEDs the spacing is 51 phase units, so the strip shows one full cycle of the travelling wave. Nothing else
+is hard-coded. The player's 16-LED ring (Teensy pin 14) is unchanged. `LED_COUNT` has to be set to 5 in `Config.h` and reflashed — the
+README's tunables table says so.
+
 ### ✅ Hand-unit power management
 
 * A reset or power-up goes to deep sleep; the button (GPIO 9, ext1 wake) starts it. A tap < 2 s is a "short press"
@@ -402,9 +494,10 @@ stored in flash); a rail above 4.3 V means USB, reported as "battery not measura
 CRITICAL. Thresholds (3600 mV low, 3300 mV critical → sleep) apply to the corrected cell voltage. Caveats: a fixed
 offset is good to about ±0.1 V because the diode drop varies with load; there is no charge indication on USB.
 
-**The proper hardware fix** is to move the divider's top to the BAT+ pad (true cell on USB and battery) and add
-about 100 nF from GPIO 3 to ground — a 50–110 kΩ divider reads a little low on the ESP32's ADC without it (not checked
-against Espressif's guidance).
+**The proper hardware fix** is to move the divider's top to the BAT+ pad (true cell on USB and battery). The hand-unit design notes show
+a **100 nF capacitor from GPIO 3 to ground** — check that it is really fitted: a 50–110 kΩ divider reads a little low on the ESP32's ADC
+without it (not checked against Espressif's guidance). The notes and `Config.h` say 100 kΩ + 100 kΩ, a comment in `PowerManager.h` says
+220 kΩ — measure your board.
 
 ### ⚠️ VL53L0X: one unit still not working properly
 
@@ -496,7 +589,7 @@ proximity.
 | 1 | One hand unit's VL53L0X still misbehaves | ⚠️ open — see section 6 ("VL53L0X: one unit still not working properly") |
 | 2 | Faint red LED glow on GPIO 48 on two hand units | ⚠️ open — reset test not yet run |
 | 3 | Button pairing confirmed end to end | ⚠️ open |
-| 4 | Move the hand unit's battery divider to BAT+ (+ 100 nF) | optional hardware fix; firmware correction is in |
+| 4 | Move the hand unit's battery divider to BAT+ (and confirm the 100 nF capacitor is fitted) | optional hardware fix; firmware correction is in |
 | 5 | Calibrate `battery cal` on every hand unit (needs a multimeter and an unplugged unit) | to do |
 | 6 | Real PCB schematic / board exports into `docs/` (placeholders are in place) | to do |
 | 7 | Generate show builds (`--lock`, final `--end-after`), program the spare tags | to do before a show |
@@ -507,6 +600,11 @@ proximity.
 ## 10. Housekeeping
 
 * `configs/gnerate_player_configs.py` (typo in the name) is a stale duplicate of `generate_player_configs.py` — delete it.
+* `ESP32handUnit/Readme.md` and `context.md` have been merged into this README (sections 11, 15.6, 15.8–15.10, troubleshooting) and this
+  file (section 6) and can be deleted. What was **not** carried over because it is outdated: the 8-LED ring (the source default was 16, and the units now carry a 5-LED strip), `PROX_NEAR_MM 40`
+  (now 20), the old status-LED colour table (replaced by the current language), the 2 s heartbeat timeout, `WiFi.setSleep(true)`, the
+  note that the body-bridge → Teensy UART was only stubbed (it is implemented), and the early development sequence. Its UWB / Bitcraze
+  remark belongs to a different project.
 * `tools/card_log.csv` contains only a header line (`timestamp,uid_hex,tag_type`) — probably left over from the removed
   local reader; delete it if nothing uses it.
 * `docs/experiencemap.png` is the old figure; the README now uses `docs/experience_map.*`, generated by
