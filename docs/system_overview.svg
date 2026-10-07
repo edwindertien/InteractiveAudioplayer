@@ -1,0 +1,141 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="860" viewBox="0 0 1500 860"><defs>
+<marker id="m0" markerWidth="10" markerHeight="10" refX="8.5" refY="5" orient="auto" markerUnits="userSpaceOnUse"><path d="M1,1 L9,5 L1,9 Z" fill="#9333ea"/></marker>
+<marker id="m0s" markerWidth="10" markerHeight="10" refX="1.5" refY="5" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path d="M1,1 L9,5 L1,9 Z" fill="#9333ea"/></marker>
+<marker id="m1" markerWidth="10" markerHeight="10" refX="8.5" refY="5" orient="auto" markerUnits="userSpaceOnUse"><path d="M1,1 L9,5 L1,9 Z" fill="#4b5563"/></marker>
+<marker id="m1s" markerWidth="10" markerHeight="10" refX="1.5" refY="5" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path d="M1,1 L9,5 L1,9 Z" fill="#4b5563"/></marker>
+<marker id="m2" markerWidth="10" markerHeight="10" refX="8.5" refY="5" orient="auto" markerUnits="userSpaceOnUse"><path d="M1,1 L9,5 L1,9 Z" fill="#4f46e5"/></marker>
+<marker id="m2s" markerWidth="10" markerHeight="10" refX="1.5" refY="5" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path d="M1,1 L9,5 L1,9 Z" fill="#4f46e5"/></marker>
+<marker id="m3" markerWidth="10" markerHeight="10" refX="8.5" refY="5" orient="auto" markerUnits="userSpaceOnUse"><path d="M1,1 L9,5 L1,9 Z" fill="#0d9488"/></marker>
+<marker id="m3s" markerWidth="10" markerHeight="10" refX="1.5" refY="5" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path d="M1,1 L9,5 L1,9 Z" fill="#0d9488"/></marker>
+</defs>
+<rect width="1500" height="860" fill="#ffffff"/>
+<text x="24.0" y="34.0" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="20" fill="#1f2937" text-anchor="start" font-weight="bold">System overview — one player</text>
+<text x="24.0" y="56.0" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="12" fill="#6b7280" text-anchor="start" font-weight="normal">Seven of these run side by side. Each wearer carries a hand unit; each player has its own body bridge, Teensy and SD card.</text>
+<rect x="20.0" y="80.0" width="230.0" height="300.0" rx="14" fill="none" stroke="#9333ea" stroke-width="1.4" stroke-dasharray="7,5"/>
+<text x="34.0" y="100.0" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="12" fill="#581c87" text-anchor="start" font-weight="bold">NFC tags</text>
+<rect x="36.0" y="112.0" width="198.0" height="47.2" rx="9" fill="#f3e8ff" stroke="#9333ea" stroke-width="1.6"/>
+<text x="46.0" y="129.0" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="12" fill="#581c87" text-anchor="start" font-weight="bold">start</text>
+<text x="46.0" y="148.5" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="10.5" fill="#1f2937" text-anchor="start" font-weight="normal">begins the show</text>
+<rect x="36.0" y="172.0" width="198.0" height="47.2" rx="9" fill="#f3e8ff" stroke="#9333ea" stroke-width="1.6"/>
+<text x="46.0" y="189.0" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="12" fill="#581c87" text-anchor="start" font-weight="bold">narrator / overlay 1 / 2</text>
+<text x="46.0" y="208.5" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="10.5" fill="#1f2937" text-anchor="start" font-weight="normal">toggle that layer</text>
+<rect x="36.0" y="232.0" width="198.0" height="62.5" rx="9" fill="#f3e8ff" stroke="#9333ea" stroke-width="1.6"/>
+<text x="46.0" y="249.0" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="12" fill="#581c87" text-anchor="start" font-weight="bold">person 1 … 7</text>
+<text x="46.0" y="268.5" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="10.5" fill="#1f2937" text-anchor="start" font-weight="normal">start recharge or an</text>
+<text x="46.0" y="283.7" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="10.5" fill="#1f2937" text-anchor="start" font-weight="normal">encounter chapter</text>
+<text x="36.0" y="345.0" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="10.5" fill="#6b7280" text-anchor="start" font-weight="normal">spare tags per role:</text>
+<text x="36.0" y="360.0" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="10.5" fill="#6b7280" text-anchor="start" font-weight="normal">3 / 3 / 6+6 / 3 per person</text>
+<rect x="290.0" y="80.0" width="350.0" height="460.0" rx="14" fill="none" stroke="#ea580c" stroke-width="1.4" stroke-dasharray="7,5"/>
+<text x="304.0" y="100.0" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="12" fill="#7c2d12" text-anchor="start" font-weight="bold">Wearer — hand unit  (ESP32-S3 SuperMini)</text>
+<rect x="306.0" y="112.0" width="318.0" height="47.2" rx="9" fill="#ffedd5" stroke="#ea580c" stroke-width="1.6"/>
+<text x="316.0" y="129.0" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="12" fill="#7c2d12" text-anchor="start" font-weight="bold">PN532 NFC reader</text>
+<text x="316.0" y="148.5" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="10.5" fill="#1f2937" text-anchor="start" font-weight="normal">UART 115200 · GPIO 5/6 · RST 10</text>
+<rect x="306.0" y="167.2" width="318.0" height="47.2" rx="9" fill="#ffedd5" stroke="#ea580c" stroke-width="1.6"/>
+<text x="316.0" y="184.2" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="12" fill="#7c2d12" text-anchor="start" font-weight="bold">VL53L0X distance sensor</text>
+<text x="316.0" y="203.7" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="10.5" fill="#1f2937" text-anchor="start" font-weight="normal">I²C · GPIO 7/8 · XSHUT 1</text>
+<rect x="306.0" y="222.4" width="318.0" height="47.2" rx="9" fill="#ffedd5" stroke="#ea580c" stroke-width="1.6"/>
+<text x="316.0" y="239.4" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="12" fill="#7c2d12" text-anchor="start" font-weight="bold">Vibration motor</text>
+<text x="316.0" y="258.9" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="10.5" fill="#1f2937" text-anchor="start" font-weight="normal">PWM 20 kHz · GPIO 2</text>
+<rect x="306.0" y="277.7" width="318.0" height="47.2" rx="9" fill="#ffedd5" stroke="#ea580c" stroke-width="1.6"/>
+<text x="316.0" y="294.7" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="12" fill="#7c2d12" text-anchor="start" font-weight="bold">16-LED ring (WS2812B)</text>
+<text x="316.0" y="314.2" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="10.5" fill="#1f2937" text-anchor="start" font-weight="normal">GPIO 4 — tap and proximity feedback</text>
+<rect x="306.0" y="332.9" width="318.0" height="47.2" rx="9" fill="#ffedd5" stroke="#ea580c" stroke-width="1.6"/>
+<text x="316.0" y="349.9" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="12" fill="#7c2d12" text-anchor="start" font-weight="bold">Status LED</text>
+<text x="316.0" y="369.4" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="10.5" fill="#1f2937" text-anchor="start" font-weight="normal">GPIO 48 — link / pairing / battery</text>
+<rect x="306.0" y="388.1" width="318.0" height="47.2" rx="9" fill="#ffedd5" stroke="#ea580c" stroke-width="1.6"/>
+<text x="316.0" y="405.1" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="12" fill="#7c2d12" text-anchor="start" font-weight="bold">Button</text>
+<text x="316.0" y="424.6" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="10.5" fill="#1f2937" text-anchor="start" font-weight="normal">GPIO 9 — hold 2 s: sleep · tap: pairing</text>
+<rect x="306.0" y="443.4" width="318.0" height="47.2" rx="9" fill="#ffedd5" stroke="#ea580c" stroke-width="1.6"/>
+<text x="316.0" y="460.4" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="12" fill="#7c2d12" text-anchor="start" font-weight="bold">LiPo battery</text>
+<text x="316.0" y="479.9" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="10.5" fill="#1f2937" text-anchor="start" font-weight="normal">ADC on GPIO 3 (divider)</text>
+<rect x="750.0" y="80.0" width="260.0" height="300.0" rx="14" fill="none" stroke="#16a34a" stroke-width="1.4" stroke-dasharray="7,5"/>
+<text x="764.0" y="100.0" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="12" fill="#14532d" text-anchor="start" font-weight="bold">Body bridge  (ESP32-S3 SuperMini)</text>
+<rect x="766.0" y="112.0" width="228.0" height="77.7" rx="9" fill="#dcfce7" stroke="#16a34a" stroke-width="1.6"/>
+<text x="776.0" y="129.0" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="12" fill="#14532d" text-anchor="start" font-weight="bold">ESP-NOW ⇄ UART</text>
+<text x="776.0" y="148.5" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="10.5" fill="#1f2937" text-anchor="start" font-weight="normal">forwards hand-unit data</text>
+<text x="776.0" y="163.7" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="10.5" fill="#1f2937" text-anchor="start" font-weight="normal">to the Teensy, sends a</text>
+<text x="776.0" y="178.9" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="10.5" fill="#1f2937" text-anchor="start" font-weight="normal">heartbeat back every 1 s</text>
+<rect x="766.0" y="206.0" width="228.0" height="62.5" rx="9" fill="#dcfce7" stroke="#16a34a" stroke-width="1.6"/>
+<text x="776.0" y="223.0" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="12" fill="#14532d" text-anchor="start" font-weight="bold">Status LED  (GPIO 48)</text>
+<text x="776.0" y="242.5" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="10.5" fill="#1f2937" text-anchor="start" font-weight="normal">red / yellow / green link</text>
+<text x="776.0" y="257.7" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="10.5" fill="#1f2937" text-anchor="start" font-weight="normal">blue = tag or pairing</text>
+<rect x="766.0" y="280.0" width="228.0" height="47.2" rx="9" fill="#dcfce7" stroke="#16a34a" stroke-width="1.6"/>
+<text x="776.0" y="297.0" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="12" fill="#14532d" text-anchor="start" font-weight="bold">Pair button  (GPIO 9)</text>
+<text x="776.0" y="316.5" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="10.5" fill="#1f2937" text-anchor="start" font-weight="normal">hold 2 s = pairing mode</text>
+<rect x="750.0" y="420.0" width="260.0" height="92.9" rx="9" fill="#e0e7ff" stroke="#4f46e5" stroke-width="1.6"/>
+<text x="760.0" y="437.0" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="12" fill="#312e81" text-anchor="start" font-weight="bold">Prepared on a Mac / PC</text>
+<text x="760.0" y="456.5" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="10.5" fill="#1f2937" text-anchor="start" font-weight="normal">stems → assemble_71.sh</text>
+<text x="760.0" y="471.7" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="10.5" fill="#1f2937" text-anchor="start" font-weight="normal">tags → generate_player_configs.py</text>
+<text x="760.0" y="486.9" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="10.5" fill="#1f2937" text-anchor="start" font-weight="normal">cards via card reader, or the</text>
+<text x="760.0" y="502.2" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="10.5" fill="#1f2937" text-anchor="start" font-weight="normal">Teensy's USB maintenance mode</text>
+<rect x="1080.0" y="80.0" width="400.0" height="760.0" rx="14" fill="none" stroke="#2563eb" stroke-width="1.4" stroke-dasharray="7,5"/>
+<text x="1094.0" y="100.0" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="12" fill="#1e3a8a" text-anchor="start" font-weight="bold">Player — Teensy 4.1</text>
+<rect x="1096.0" y="112.0" width="368.0" height="92.9" rx="9" fill="#fef9c3" stroke="#ca8a04" stroke-width="1.6"/>
+<text x="1106.0" y="129.0" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="12" fill="#713f12" text-anchor="start" font-weight="bold">SD card  (built-in SDIO slot)</text>
+<text x="1106.0" y="148.5" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="10.5" fill="#1f2937" text-anchor="start" font-weight="normal">experience.wav   8-ch 7.1, 16-bit 44.1 kHz</text>
+<text x="1106.0" y="163.7" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="10.5" fill="#1f2937" text-anchor="start" font-weight="normal">config.json  (or  playerN_config.json)</text>
+<text x="1106.0" y="178.9" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="10.5" fill="#1f2937" text-anchor="start" font-weight="normal">fx_connect / fx_denied / fx_ready .wav</text>
+<text x="1106.0" y="194.2" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="10.5" fill="#1f2937" text-anchor="start" font-weight="normal">led_animations.json   (optional)</text>
+<rect x="1096.0" y="238.0" width="368.0" height="77.7" rx="9" fill="#dbeafe" stroke="#2563eb" stroke-width="1.6"/>
+<text x="1106.0" y="255.0" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="12" fill="#1e3a8a" text-anchor="start" font-weight="bold">Show logic</text>
+<text x="1106.0" y="274.5" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="10.5" fill="#1f2937" text-anchor="start" font-weight="normal">chapters · tags · overlays · seek fades</text>
+<text x="1106.0" y="289.7" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="10.5" fill="#1f2937" text-anchor="start" font-weight="normal">person-tag lock · timed ending · ducking</text>
+<text x="1106.0" y="304.9" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="10.5" fill="#1f2937" text-anchor="start" font-weight="normal">USB: serial CLI + MTP maintenance mode</text>
+<rect x="1096.0" y="338.0" width="368.0" height="62.5" rx="9" fill="#dbeafe" stroke="#2563eb" stroke-width="1.6"/>
+<text x="1106.0" y="355.0" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="12" fill="#1e3a8a" text-anchor="start" font-weight="bold">Audio engine  (Teensy Audio Library)</text>
+<text x="1106.0" y="374.5" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="10.5" fill="#1f2937" text-anchor="start" font-weight="normal">8-channel player → mixers → two I²S outputs</text>
+<text x="1106.0" y="389.7" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="10.5" fill="#1f2937" text-anchor="start" font-weight="normal">RAM effects, haptic soft limiter</text>
+<rect x="1096.0" y="450.0" width="176.0" height="62.5" rx="9" fill="#ccfbf1" stroke="#0d9488" stroke-width="1.6"/>
+<text x="1106.0" y="467.0" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="12" fill="#134e4a" text-anchor="start" font-weight="bold">I²S 1  →  PCM5102A</text>
+<text x="1106.0" y="486.5" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="10.5" fill="#1f2937" text-anchor="start" font-weight="normal">MCLK 23 · BCLK 21</text>
+<text x="1106.0" y="501.7" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="10.5" fill="#1f2937" text-anchor="start" font-weight="normal">LRCLK 20 · DIN 7</text>
+<rect x="1288.0" y="450.0" width="176.0" height="62.5" rx="9" fill="#ccfbf1" stroke="#0d9488" stroke-width="1.6"/>
+<text x="1298.0" y="467.0" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="12" fill="#134e4a" text-anchor="start" font-weight="bold">I²S 2  →  MAX98357A</text>
+<text x="1298.0" y="486.5" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="10.5" fill="#1f2937" text-anchor="start" font-weight="normal">LRC 3 · BCLK 4</text>
+<text x="1298.0" y="501.7" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="10.5" fill="#1f2937" text-anchor="start" font-weight="normal">DIN 2</text>
+<rect x="1096.0" y="580.0" width="176.0" height="62.5" rx="9" fill="#ccfbf1" stroke="#0d9488" stroke-width="1.6"/>
+<text x="1106.0" y="597.0" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="12" fill="#134e4a" text-anchor="start" font-weight="bold">Headphones</text>
+<text x="1106.0" y="616.5" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="10.5" fill="#1f2937" text-anchor="start" font-weight="normal">(built-in amplifier)</text>
+<text x="1106.0" y="631.7" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="10.5" fill="#1f2937" text-anchor="start" font-weight="normal">optional level pot</text>
+<rect x="1288.0" y="580.0" width="176.0" height="62.5" rx="9" fill="#ccfbf1" stroke="#0d9488" stroke-width="1.6"/>
+<text x="1298.0" y="597.0" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="12" fill="#134e4a" text-anchor="start" font-weight="bold">Haptic transducer</text>
+<text x="1298.0" y="616.5" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="10.5" fill="#1f2937" text-anchor="start" font-weight="normal">vibration through</text>
+<text x="1298.0" y="631.7" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="10.5" fill="#1f2937" text-anchor="start" font-weight="normal">the body</text>
+<rect x="1096.0" y="710.0" width="176.0" height="47.2" rx="9" fill="#ccfbf1" stroke="#0d9488" stroke-width="1.6"/>
+<text x="1106.0" y="727.0" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="12" fill="#134e4a" text-anchor="start" font-weight="bold">LED ring (player)</text>
+<text x="1106.0" y="746.5" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="10.5" fill="#1f2937" text-anchor="start" font-weight="normal">pin 14 · 16 × SK6812</text>
+<rect x="1288.0" y="710.0" width="176.0" height="62.5" rx="9" fill="#dbeafe" stroke="#2563eb" stroke-width="1.6"/>
+<text x="1298.0" y="727.0" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="12" fill="#1e3a8a" text-anchor="start" font-weight="bold">LED animator</text>
+<text x="1298.0" y="746.5" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="10.5" fill="#1f2937" text-anchor="start" font-weight="normal">ring level follows</text>
+<text x="1298.0" y="761.7" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="10.5" fill="#1f2937" text-anchor="start" font-weight="normal">the haptic signal</text>
+<polyline points="250.0,190.0 290.0,190.0" fill="none" stroke="#9333ea" stroke-width="1.8" marker-end="url(#m0)"/>
+<rect x="256.4" y="164.5" width="27.2" height="17.5" rx="4" fill="#ffffff" stroke="none" stroke-width="0" opacity="0.92"/>
+<text x="270.0" y="176.0" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="10.5" fill="#6b7280" text-anchor="middle" font-weight="normal">tap</text>
+<polyline points="640.0,160.0 750.0,160.0" fill="none" stroke="#4b5563" stroke-width="1.8" marker-end="url(#m1)" marker-start="url(#m1s)"/>
+<rect x="662.1" y="134.5" width="65.9" height="17.5" rx="4" fill="#ffffff" stroke="none" stroke-width="0" opacity="0.92"/>
+<text x="695.0" y="146.0" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="10.5" fill="#6b7280" text-anchor="middle" font-weight="bold">ESP-NOW</text>
+<rect x="670.2" y="167.0" width="49.6" height="17.0" rx="4" fill="#ffffff" stroke="none" stroke-width="0" opacity="0.92"/>
+<text x="695.0" y="178.0" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="10" fill="#6b7280" text-anchor="middle" font-weight="normal">2.4 GHz</text>
+<text x="695.0" y="216.0" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="9.5" fill="#6b7280" text-anchor="middle" font-weight="normal">proximity 10 Hz</text>
+<text x="695.0" y="230.0" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="9.5" fill="#6b7280" text-anchor="middle" font-weight="normal">NFC, touch →</text>
+<text x="695.0" y="244.0" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="9.5" fill="#6b7280" text-anchor="middle" font-weight="normal">← heartbeat 1 s</text>
+<polyline points="1010.0,180.0 1080.0,180.0" fill="none" stroke="#4b5563" stroke-width="1.8" marker-end="url(#m1)"/>
+<rect x="1020.5" y="154.5" width="41.1" height="17.5" rx="4" fill="#ffffff" stroke="none" stroke-width="0" opacity="0.92"/>
+<text x="1041.0" y="166.0" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="10.5" fill="#6b7280" text-anchor="middle" font-weight="bold">UART</text>
+<rect x="1016.9" y="187.0" width="48.2" height="17.0" rx="4" fill="#ffffff" stroke="none" stroke-width="0" opacity="0.92"/>
+<text x="1041.0" y="198.0" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="10" fill="#6b7280" text-anchor="middle" font-weight="normal">115200</text>
+<text x="1041.0" y="222.0" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="9.5" fill="#6b7280" text-anchor="middle" font-weight="normal">JSON lines</text>
+<text x="1041.0" y="236.0" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="9.5" fill="#6b7280" text-anchor="middle" font-weight="normal">p · n · c</text>
+<text x="1041.0" y="250.0" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="9.5" fill="#6b7280" text-anchor="middle" font-weight="normal">pins 0/1</text>
+<polyline points="1010.0,470.0 1072.0,470.0 1072.0,150.0 1096.0,150.0" fill="none" stroke="#4f46e5" stroke-width="1.8" stroke-dasharray="5,4" marker-end="url(#m2)"/>
+<rect x="1047.4" y="319.0" width="49.1" height="17.0" rx="4" fill="#ffffff" stroke="none" stroke-width="0" opacity="0.92"/>
+<text x="1072.0" y="330.0" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="10" fill="#4f46e5" text-anchor="middle" font-weight="normal">SD card</text>
+<polyline points="1280.0,402.0 1280.0,426.0 1184.0,426.0 1184.0,450.0" fill="none" stroke="#4b5563" stroke-width="1.8" marker-end="url(#m1)"/>
+<polyline points="1280.0,426.0 1376.0,426.0 1376.0,450.0" fill="none" stroke="#4b5563" stroke-width="1.8" marker-end="url(#m1)"/>
+<polyline points="1184.0,520.0 1184.0,580.0" fill="none" stroke="#0d9488" stroke-width="1.8" marker-end="url(#m3)"/>
+<polyline points="1376.0,520.0 1376.0,580.0" fill="none" stroke="#0d9488" stroke-width="1.8" marker-end="url(#m3)"/>
+<polyline points="1376.0,650.0 1376.0,710.0" fill="none" stroke="#0d9488" stroke-width="1.8" stroke-dasharray="4,3" marker-end="url(#m3)"/>
+<rect x="1359.1" y="673.0" width="33.8" height="17.0" rx="4" fill="#ffffff" stroke="none" stroke-width="0" opacity="0.92"/>
+<text x="1376.0" y="684.0" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="10" fill="#6b7280" text-anchor="middle" font-weight="normal">level</text>
+<polyline points="1288.0,745.0 1272.0,745.0" fill="none" stroke="#4b5563" stroke-width="1.8" marker-end="url(#m1)"/>
+</svg>

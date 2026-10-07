@@ -1,0 +1,145 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="860" viewBox="0 0 1500 860"><defs>
+<marker id="m0" markerWidth="10" markerHeight="10" refX="8.5" refY="5" orient="auto" markerUnits="userSpaceOnUse"><path d="M1,1 L9,5 L1,9 Z" fill="#2563eb"/></marker>
+<marker id="m0s" markerWidth="10" markerHeight="10" refX="1.5" refY="5" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path d="M1,1 L9,5 L1,9 Z" fill="#2563eb"/></marker>
+<marker id="m1" markerWidth="10" markerHeight="10" refX="8.5" refY="5" orient="auto" markerUnits="userSpaceOnUse"><path d="M1,1 L9,5 L1,9 Z" fill="#4b5563"/></marker>
+<marker id="m1s" markerWidth="10" markerHeight="10" refX="1.5" refY="5" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path d="M1,1 L9,5 L1,9 Z" fill="#4b5563"/></marker>
+<marker id="m2" markerWidth="10" markerHeight="10" refX="8.5" refY="5" orient="auto" markerUnits="userSpaceOnUse"><path d="M1,1 L9,5 L1,9 Z" fill="#ca8a04"/></marker>
+<marker id="m2s" markerWidth="10" markerHeight="10" refX="1.5" refY="5" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path d="M1,1 L9,5 L1,9 Z" fill="#ca8a04"/></marker>
+<marker id="m3" markerWidth="10" markerHeight="10" refX="8.5" refY="5" orient="auto" markerUnits="userSpaceOnUse"><path d="M1,1 L9,5 L1,9 Z" fill="#0d9488"/></marker>
+<marker id="m3s" markerWidth="10" markerHeight="10" refX="1.5" refY="5" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path d="M1,1 L9,5 L1,9 Z" fill="#0d9488"/></marker>
+<marker id="m4" markerWidth="10" markerHeight="10" refX="8.5" refY="5" orient="auto" markerUnits="userSpaceOnUse"><path d="M1,1 L9,5 L1,9 Z" fill="#dc2626"/></marker>
+<marker id="m4s" markerWidth="10" markerHeight="10" refX="1.5" refY="5" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path d="M1,1 L9,5 L1,9 Z" fill="#dc2626"/></marker>
+</defs>
+<rect width="1500" height="860" fill="#ffffff"/>
+<text x="24.0" y="34.0" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="20" fill="#1f2937" text-anchor="start" font-weight="bold">Audio graph — what happens to the 8 channels of experience.wav</text>
+<text x="24.0" y="56.0" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="12" fill="#6b7280" text-anchor="start" font-weight="normal">Teensy Audio Library objects as wired in main.cpp. Gains in italics are changed while the show runs.</text>
+<rect x="40.0" y="90.0" width="250.0" height="77.7" rx="9" fill="#fef9c3" stroke="#ca8a04" stroke-width="1.6"/>
+<text x="50.0" y="107.0" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="12" fill="#713f12" text-anchor="start" font-weight="bold">RamPlayer  (effects)</text>
+<text x="50.0" y="126.5" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="10.5" fill="#1f2937" text-anchor="start" font-weight="normal">7 slots loaded from the SD card at boot</text>
+<text x="50.0" y="141.7" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="10.5" fill="#1f2937" text-anchor="start" font-weight="normal">played with AudioPlayMemory</text>
+<text x="50.0" y="156.9" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="10.5" fill="#1f2937" text-anchor="start" font-weight="normal">while one plays the stems are ducked</text>
+<rect x="40.0" y="210.0" width="250.0" height="340.0" rx="9" fill="#dbeafe" stroke="#2563eb" stroke-width="1.6"/>
+<text x="52.0" y="232.0" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="13" fill="#1e3a8a" text-anchor="start" font-weight="bold">AudioPlaySdWavMulti</text>
+<text x="52.0" y="249.0" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="10" fill="#6b7280" text-anchor="start" font-weight="normal" font-style="italic">experience.wav · 8 channels · one SD read</text>
+<text x="60.0" y="274.0" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="11" fill="#1f2937" text-anchor="start" font-weight="normal">0  FL   base L</text>
+<circle cx="290.0" cy="270.0" r="4" fill="#2563eb" stroke="none" stroke-width="1"/>
+<text x="60.0" y="309.0" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="11" fill="#1f2937" text-anchor="start" font-weight="normal">1  FR   base R</text>
+<circle cx="290.0" cy="305.0" r="4" fill="#2563eb" stroke="none" stroke-width="1"/>
+<text x="60.0" y="344.0" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="11" fill="#1f2937" text-anchor="start" font-weight="normal">2  FC   narration</text>
+<circle cx="290.0" cy="340.0" r="4" fill="#2563eb" stroke="none" stroke-width="1"/>
+<text x="60.0" y="379.0" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="11" fill="#1f2937" text-anchor="start" font-weight="normal">4  BL   overlay 1 L</text>
+<circle cx="290.0" cy="375.0" r="4" fill="#2563eb" stroke="none" stroke-width="1"/>
+<text x="60.0" y="414.0" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="11" fill="#1f2937" text-anchor="start" font-weight="normal">5  BR   overlay 1 R</text>
+<circle cx="290.0" cy="410.0" r="4" fill="#2563eb" stroke="none" stroke-width="1"/>
+<text x="60.0" y="449.0" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="11" fill="#1f2937" text-anchor="start" font-weight="normal">6  SL   overlay 2 L</text>
+<circle cx="290.0" cy="445.0" r="4" fill="#2563eb" stroke="none" stroke-width="1"/>
+<text x="60.0" y="484.0" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="11" fill="#1f2937" text-anchor="start" font-weight="normal">7  SR   overlay 2 R</text>
+<circle cx="290.0" cy="480.0" r="4" fill="#2563eb" stroke="none" stroke-width="1"/>
+<text x="60.0" y="534.0" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="11" fill="#1f2937" text-anchor="start" font-weight="normal">3  LFE  haptic</text>
+<circle cx="290.0" cy="530.0" r="4" fill="#2563eb" stroke="none" stroke-width="1"/>
+<text x="52.0" y="512.0" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="9.5" fill="#6b7280" text-anchor="start" font-weight="normal" font-style="italic">(channel 3 is drawn last)</text>
+<rect x="420.0" y="215.0" width="170.0" height="150.0" rx="9" fill="#dbeafe" stroke="#2563eb" stroke-width="1.6"/>
+<text x="432.0" y="235.0" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="13" fill="#1e3a8a" text-anchor="start" font-weight="bold">stemMixerL</text>
+<circle cx="420.0" cy="265.0" r="3.5" fill="#2563eb" stroke="none" stroke-width="1"/>
+<text x="430.0" y="269.0" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="10.5" fill="#1f2937" text-anchor="start" font-weight="normal">0  base L</text>
+<circle cx="420.0" cy="295.0" r="3.5" fill="#2563eb" stroke="none" stroke-width="1"/>
+<text x="430.0" y="299.0" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="10.5" fill="#1f2937" text-anchor="start" font-weight="normal">1  narration</text>
+<circle cx="420.0" cy="325.0" r="3.5" fill="#2563eb" stroke="none" stroke-width="1"/>
+<text x="430.0" y="329.0" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="10.5" fill="#1f2937" text-anchor="start" font-weight="normal">2  overlay 1 L</text>
+<circle cx="420.0" cy="355.0" r="3.5" fill="#2563eb" stroke="none" stroke-width="1"/>
+<text x="430.0" y="359.0" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="10.5" fill="#1f2937" text-anchor="start" font-weight="normal">3  overlay 2 L</text>
+<circle cx="590.0" cy="290.0" r="3.5" fill="#2563eb" stroke="none" stroke-width="1"/>
+<rect x="420.0" y="390.0" width="170.0" height="150.0" rx="9" fill="#dbeafe" stroke="#2563eb" stroke-width="1.6"/>
+<text x="432.0" y="410.0" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="13" fill="#1e3a8a" text-anchor="start" font-weight="bold">stemMixerR</text>
+<circle cx="420.0" cy="440.0" r="3.5" fill="#2563eb" stroke="none" stroke-width="1"/>
+<text x="430.0" y="444.0" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="10.5" fill="#1f2937" text-anchor="start" font-weight="normal">0  base R</text>
+<circle cx="420.0" cy="470.0" r="3.5" fill="#2563eb" stroke="none" stroke-width="1"/>
+<text x="430.0" y="474.0" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="10.5" fill="#1f2937" text-anchor="start" font-weight="normal">1  narration</text>
+<circle cx="420.0" cy="500.0" r="3.5" fill="#2563eb" stroke="none" stroke-width="1"/>
+<text x="430.0" y="504.0" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="10.5" fill="#1f2937" text-anchor="start" font-weight="normal">2  overlay 1 R</text>
+<circle cx="420.0" cy="530.0" r="3.5" fill="#2563eb" stroke="none" stroke-width="1"/>
+<text x="430.0" y="534.0" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="10.5" fill="#1f2937" text-anchor="start" font-weight="normal">3  overlay 2 R</text>
+<circle cx="590.0" cy="465.0" r="3.5" fill="#2563eb" stroke="none" stroke-width="1"/>
+<text x="500.0" y="380.0" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="9.5" fill="#6b7280" text-anchor="middle" font-weight="normal" font-style="italic">gains: 1 · narr · ov1 · ov2</text>
+<text x="500.0" y="555.0" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="9.5" fill="#6b7280" text-anchor="middle" font-weight="normal" font-style="italic">(ramped 0.02 per 20 ms)</text>
+<polyline points="290.0,270.0 330.0,270.0 330.0,265.0 420.0,265.0" fill="none" stroke="#2563eb" stroke-width="1.8" marker-end="url(#m0)"/>
+<polyline points="290.0,305.0 340.0,305.0 340.0,440.0 420.0,440.0" fill="none" stroke="#2563eb" stroke-width="1.8" marker-end="url(#m0)"/>
+<polyline points="290.0,340.0 350.0,340.0 350.0,295.0 420.0,295.0" fill="none" stroke="#2563eb" stroke-width="1.8" marker-end="url(#m0)"/>
+<polyline points="350.0,340.0 350.0,470.0 420.0,470.0" fill="none" stroke="#2563eb" stroke-width="1.8" marker-end="url(#m0)"/>
+<polyline points="290.0,375.0 360.0,375.0 360.0,325.0 420.0,325.0" fill="none" stroke="#2563eb" stroke-width="1.8" marker-end="url(#m0)"/>
+<polyline points="290.0,410.0 370.0,410.0 370.0,500.0 420.0,500.0" fill="none" stroke="#2563eb" stroke-width="1.8" marker-end="url(#m0)"/>
+<polyline points="290.0,445.0 380.0,445.0 380.0,355.0 420.0,355.0" fill="none" stroke="#2563eb" stroke-width="1.8" marker-end="url(#m0)"/>
+<polyline points="290.0,480.0 390.0,480.0 390.0,530.0 420.0,530.0" fill="none" stroke="#2563eb" stroke-width="1.8" marker-end="url(#m0)"/>
+<rect x="700.0" y="215.0" width="200.0" height="110.0" rx="9" fill="#dbeafe" stroke="#2563eb" stroke-width="1.6"/>
+<text x="712.0" y="235.0" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="13" fill="#1e3a8a" text-anchor="start" font-weight="bold">mainMixerL</text>
+<circle cx="700.0" cy="262.0" r="3.5" fill="#2563eb" stroke="none" stroke-width="1"/>
+<text x="710.0" y="266.0" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="10.5" fill="#1f2937" text-anchor="start" font-weight="normal">0  stems</text>
+<text x="712.0" y="279.0" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="9.5" fill="#6b7280" text-anchor="start" font-weight="normal" font-style="italic">gain = seek fade × duck</text>
+<circle cx="700.0" cy="297.0" r="3.5" fill="#2563eb" stroke="none" stroke-width="1"/>
+<text x="710.0" y="301.0" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="10.5" fill="#1f2937" text-anchor="start" font-weight="normal">1  effects</text>
+<circle cx="900.0" cy="270.0" r="3.5" fill="#2563eb" stroke="none" stroke-width="1"/>
+<rect x="700.0" y="390.0" width="200.0" height="110.0" rx="9" fill="#dbeafe" stroke="#2563eb" stroke-width="1.6"/>
+<text x="712.0" y="410.0" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="13" fill="#1e3a8a" text-anchor="start" font-weight="bold">mainMixerR</text>
+<circle cx="700.0" cy="437.0" r="3.5" fill="#2563eb" stroke="none" stroke-width="1"/>
+<text x="710.0" y="441.0" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="10.5" fill="#1f2937" text-anchor="start" font-weight="normal">0  stems</text>
+<text x="712.0" y="454.0" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="9.5" fill="#6b7280" text-anchor="start" font-weight="normal" font-style="italic">gain = seek fade × duck</text>
+<circle cx="700.0" cy="472.0" r="3.5" fill="#2563eb" stroke="none" stroke-width="1"/>
+<text x="710.0" y="476.0" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="10.5" fill="#1f2937" text-anchor="start" font-weight="normal">1  effects</text>
+<circle cx="900.0" cy="445.0" r="3.5" fill="#2563eb" stroke="none" stroke-width="1"/>
+<polyline points="590.0,290.0 650.0,290.0 650.0,262.0 700.0,262.0" fill="none" stroke="#4b5563" stroke-width="1.8" marker-end="url(#m1)"/>
+<polyline points="590.0,465.0 650.0,465.0 650.0,437.0 700.0,437.0" fill="none" stroke="#4b5563" stroke-width="1.8" marker-end="url(#m1)"/>
+<polyline points="290.0,135.0 670.0,135.0 670.0,297.0 700.0,297.0" fill="none" stroke="#ca8a04" stroke-width="1.8" marker-end="url(#m2)"/>
+<polyline points="670.0,297.0 670.0,472.0 700.0,472.0" fill="none" stroke="#ca8a04" stroke-width="1.8" marker-end="url(#m2)"/>
+<rect x="980.0" y="290.0" width="160.0" height="77.7" rx="9" fill="#ccfbf1" stroke="#0d9488" stroke-width="1.6"/>
+<text x="990.0" y="307.0" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="12" fill="#134e4a" text-anchor="start" font-weight="bold">AudioOutputI2S</text>
+<text x="990.0" y="326.5" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="10.5" fill="#1f2937" text-anchor="start" font-weight="normal">I²S 1</text>
+<text x="990.0" y="341.7" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="10.5" fill="#1f2937" text-anchor="start" font-weight="normal">L from mainMixerL</text>
+<text x="990.0" y="356.9" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="10.5" fill="#1f2937" text-anchor="start" font-weight="normal">R from mainMixerR</text>
+<polyline points="900.0,270.0 940.0,270.0 940.0,335.0 980.0,335.0" fill="none" stroke="#4b5563" stroke-width="1.8" marker-end="url(#m1)"/>
+<polyline points="900.0,445.0 940.0,445.0 940.0,365.0 980.0,365.0" fill="none" stroke="#4b5563" stroke-width="1.8" marker-end="url(#m1)"/>
+<rect x="1200.0" y="290.0" width="140.0" height="62.5" rx="9" fill="#ccfbf1" stroke="#0d9488" stroke-width="1.6"/>
+<text x="1210.0" y="307.0" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="12" fill="#134e4a" text-anchor="start" font-weight="bold">PCM5102A</text>
+<text x="1210.0" y="326.5" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="10.5" fill="#1f2937" text-anchor="start" font-weight="normal">DAC · H3L jumper</text>
+<text x="1210.0" y="341.7" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="10.5" fill="#1f2937" text-anchor="start" font-weight="normal">bridged to HIGH</text>
+<rect x="1370.0" y="290.0" width="110.0" height="62.5" rx="9" fill="#ccfbf1" stroke="#0d9488" stroke-width="1.6"/>
+<text x="1380.0" y="307.0" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="12" fill="#134e4a" text-anchor="start" font-weight="bold">Headphones</text>
+<text x="1380.0" y="326.5" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="10.5" fill="#1f2937" text-anchor="start" font-weight="normal">built-in amp</text>
+<text x="1380.0" y="341.7" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="10.5" fill="#1f2937" text-anchor="start" font-weight="normal">analog pot</text>
+<polyline points="1140.0,335.0 1200.0,335.0" fill="none" stroke="#0d9488" stroke-width="1.8" marker-end="url(#m3)"/>
+<polyline points="1340.0,335.0 1370.0,335.0" fill="none" stroke="#0d9488" stroke-width="1.8" marker-end="url(#m3)"/>
+<polyline points="290.0,530.0 305.0,530.0 305.0,685.0 420.0,685.0" fill="none" stroke="#dc2626" stroke-width="1.8" marker-end="url(#m4)"/>
+<rect x="290.7" y="588.5" width="28.5" height="17.5" rx="4" fill="#ffffff" stroke="none" stroke-width="0" opacity="0.92"/>
+<text x="305.0" y="600.0" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="10.5" fill="#dc2626" text-anchor="middle" font-weight="normal">LFE</text>
+<rect x="420.0" y="640.0" width="170.0" height="62.5" rx="9" fill="#dbeafe" stroke="#2563eb" stroke-width="1.6"/>
+<text x="430.0" y="657.0" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="12" fill="#1e3a8a" text-anchor="start" font-weight="bold">hapticMixer</text>
+<text x="430.0" y="676.5" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="10.5" fill="#1f2937" text-anchor="start" font-weight="normal">gain  (hgain)</text>
+<text x="430.0" y="691.7" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="10.5" fill="#1f2937" text-anchor="start" font-weight="normal">1.0 by default</text>
+<rect x="640.0" y="640.0" width="200.0" height="62.5" rx="9" fill="#dbeafe" stroke="#2563eb" stroke-width="1.6"/>
+<text x="650.0" y="657.0" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="12" fill="#1e3a8a" text-anchor="start" font-weight="bold">hapticShaper</text>
+<text x="650.0" y="676.5" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="10.5" fill="#1f2937" text-anchor="start" font-weight="normal">AudioEffectWaveshaper</text>
+<text x="650.0" y="691.7" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="10.5" fill="#1f2937" text-anchor="start" font-weight="normal">tanh soft limiter (hdrive)</text>
+<rect x="890.0" y="640.0" width="150.0" height="62.5" rx="9" fill="#ccfbf1" stroke="#0d9488" stroke-width="1.6"/>
+<text x="900.0" y="657.0" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="12" fill="#134e4a" text-anchor="start" font-weight="bold">AudioOutputI2S2</text>
+<text x="900.0" y="676.5" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="10.5" fill="#1f2937" text-anchor="start" font-weight="normal">I²S 2</text>
+<text x="900.0" y="691.7" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="10.5" fill="#1f2937" text-anchor="start" font-weight="normal">mono → L + R</text>
+<rect x="1090.0" y="640.0" width="160.0" height="62.5" rx="9" fill="#ccfbf1" stroke="#0d9488" stroke-width="1.6"/>
+<text x="1100.0" y="657.0" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="12" fill="#134e4a" text-anchor="start" font-weight="bold">MAX98357A</text>
+<text x="1100.0" y="676.5" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="10.5" fill="#1f2937" text-anchor="start" font-weight="normal">class-D amp</text>
+<text x="1100.0" y="691.7" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="10.5" fill="#1f2937" text-anchor="start" font-weight="normal">SD → VIN</text>
+<rect x="1300.0" y="640.0" width="180.0" height="47.2" rx="9" fill="#ccfbf1" stroke="#0d9488" stroke-width="1.6"/>
+<text x="1310.0" y="657.0" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="12" fill="#134e4a" text-anchor="start" font-weight="bold">Haptic transducer</text>
+<text x="1310.0" y="676.5" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="10.5" fill="#1f2937" text-anchor="start" font-weight="normal">vibration through the body</text>
+<polyline points="590.0,685.0 640.0,685.0" fill="none" stroke="#dc2626" stroke-width="1.8" marker-end="url(#m4)"/>
+<polyline points="840.0,685.0 890.0,685.0" fill="none" stroke="#dc2626" stroke-width="1.8" marker-end="url(#m4)"/>
+<polyline points="1040.0,685.0 1090.0,685.0" fill="none" stroke="#dc2626" stroke-width="1.8" marker-end="url(#m4)"/>
+<polyline points="1250.0,685.0 1300.0,685.0" fill="none" stroke="#dc2626" stroke-width="1.8" marker-end="url(#m4)"/>
+<rect x="420.0" y="770.0" width="250.0" height="62.0" rx="9" fill="#dbeafe" stroke="#2563eb" stroke-width="1.6"/>
+<text x="430.0" y="786.5" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="11.5" fill="#1e3a8a" text-anchor="start" font-weight="bold">AudioAnalyzePeak → LED animator</text>
+<text x="430.0" y="806.0" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="10.5" fill="#1f2937" text-anchor="start" font-weight="normal">tapped BEFORE the limiter;</text>
+<text x="430.0" y="821.2" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="10.5" fill="#1f2937" text-anchor="start" font-weight="normal">drives the ring's level pattern</text>
+<polyline points="505.0,730.0 505.0,770.0" fill="none" stroke="#4b5563" stroke-width="1.8" stroke-dasharray="4,3" marker-end="url(#m1)"/>
+<rect x="720.0" y="782.0" width="220.0" height="47.2" rx="9" fill="#ccfbf1" stroke="#0d9488" stroke-width="1.6"/>
+<text x="730.0" y="799.0" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="12" fill="#134e4a" text-anchor="start" font-weight="bold">LED ring  (pin 14)</text>
+<text x="730.0" y="818.5" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="10.5" fill="#1f2937" text-anchor="start" font-weight="normal">16 × SK6812</text>
+<polyline points="670.0,810.0 720.0,810.0" fill="none" stroke="#4b5563" stroke-width="1.8" marker-end="url(#m1)"/>
+</svg>

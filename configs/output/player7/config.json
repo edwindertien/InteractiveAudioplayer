@@ -1,0 +1,492 @@
+{
+  "device_id": "PLAYER_7",
+  "start_chapter": "start_arrival",
+  "led_brightness": 120,
+  "idle": {
+    "led": {
+      "animation": "breathe",
+      "color": "0x000066",
+      "intensity": 0.35,
+      "speed": 0.2
+    }
+  },
+  "encounter_lock": true,
+  "base_chapter": "base",
+  "sounds": {
+    "connect": 4,
+    "denied": 5,
+    "ready": 6
+  },
+  "end_after_min": 10.0,
+  "duck_level": 0.4,
+  "end_chapter": "end_reflection",
+  "chapters": [
+    {
+      "id": "start_arrival",
+      "label": "Start \u2014 Arrival",
+      "start_ms": 0,
+      "loop_end_ms": 45000,
+      "on_enter_fx": -1,
+      "loop": true,
+      "returns_to": "",
+      "overlay_mode": "fresh",
+      "overlays": {
+        "ov1": false,
+        "ov2": false,
+        "narr": false
+      },
+      "led_background": {
+        "animation": "level",
+        "color": "0x223344",
+        "intensity": 0.5,
+        "speed": 0.3
+      },
+      "led_enter": {
+        "animation": "flash",
+        "color": "0xFFFFFF",
+        "intensity": 0.6,
+        "speed": 0.6,
+        "duration_ms": 600
+      }
+    },
+    {
+      "id": "base",
+      "label": "Base World",
+      "start_ms": 45000,
+      "loop_end_ms": 90000,
+      "on_enter_fx": -1,
+      "loop": true,
+      "returns_to": "",
+      "overlay_mode": "fresh",
+      "overlays": {
+        "ov1": false,
+        "ov2": false,
+        "narr": false
+      },
+      "led_background": {
+        "animation": "level",
+        "color": "0x0044AA",
+        "intensity": 0.6,
+        "speed": 0.4
+      },
+      "led_enter": {
+        "animation": "pulse_ring",
+        "color": "0x0044AA",
+        "intensity": 0.8,
+        "speed": 0.5,
+        "duration_ms": 1000
+      }
+    },
+    {
+      "id": "recharge",
+      "label": "Recharge \u2014 Self",
+      "start_ms": 90000,
+      "loop_end_ms": 135000,
+      "on_enter_fx": -1,
+      "loop": false,
+      "returns_to": "base",
+      "overlay_mode": "fresh",
+      "overlays": {
+        "ov1": false,
+        "ov2": false,
+        "narr": false
+      },
+      "led_background": {
+        "animation": "level",
+        "color": "0x88FF44",
+        "intensity": 0.6,
+        "speed": 0.35
+      },
+      "led_enter": {
+        "animation": "pulse_ring",
+        "color": "0x88FF44",
+        "intensity": 0.85,
+        "speed": 0.5,
+        "duration_ms": 1000
+      }
+    },
+    {
+      "id": "enc_play",
+      "label": "Encounter \u2014 Play",
+      "start_ms": 135000,
+      "loop_end_ms": 180000,
+      "on_enter_fx": -1,
+      "loop": false,
+      "returns_to": "base",
+      "overlay_mode": "fresh",
+      "overlays": {
+        "ov1": false,
+        "ov2": false,
+        "narr": false
+      },
+      "led_background": {
+        "animation": "level",
+        "color": "0xFF6600",
+        "intensity": 0.7,
+        "speed": 0.55
+      },
+      "led_enter": {
+        "animation": "flash",
+        "color": "0xFF6600",
+        "intensity": 0.9,
+        "speed": 0.8,
+        "duration_ms": 800
+      }
+    },
+    {
+      "id": "enc_suspense",
+      "label": "Encounter \u2014 Suspense",
+      "start_ms": 180000,
+      "loop_end_ms": 225000,
+      "on_enter_fx": -1,
+      "loop": false,
+      "returns_to": "base",
+      "overlay_mode": "fresh",
+      "overlays": {
+        "ov1": false,
+        "ov2": false,
+        "narr": false
+      },
+      "led_background": {
+        "animation": "level",
+        "color": "0x550088",
+        "intensity": 0.6,
+        "speed": 0.3
+      },
+      "led_enter": {
+        "animation": "flash",
+        "color": "0x8800CC",
+        "intensity": 0.9,
+        "speed": 0.7,
+        "duration_ms": 800
+      }
+    },
+    {
+      "id": "enc_loneliness",
+      "label": "Encounter \u2014 Loneliness",
+      "start_ms": 225000,
+      "loop_end_ms": 270000,
+      "on_enter_fx": -1,
+      "loop": false,
+      "returns_to": "base",
+      "overlay_mode": "fresh",
+      "overlays": {
+        "ov1": false,
+        "ov2": false,
+        "narr": false
+      },
+      "led_background": {
+        "animation": "level",
+        "color": "0x224466",
+        "intensity": 0.45,
+        "speed": 0.25
+      },
+      "led_enter": {
+        "animation": "flash",
+        "color": "0x336699",
+        "intensity": 0.7,
+        "speed": 0.6,
+        "duration_ms": 800
+      }
+    },
+    {
+      "id": "enc_nurture",
+      "label": "Encounter \u2014 Nurture",
+      "start_ms": 270000,
+      "loop_end_ms": 315000,
+      "on_enter_fx": -1,
+      "loop": false,
+      "returns_to": "base",
+      "overlay_mode": "fresh",
+      "overlays": {
+        "ov1": false,
+        "ov2": false,
+        "narr": false
+      },
+      "led_background": {
+        "animation": "level",
+        "color": "0xFFAA88",
+        "intensity": 0.6,
+        "speed": 0.3
+      },
+      "led_enter": {
+        "animation": "pulse_ring",
+        "color": "0xFFAA88",
+        "intensity": 0.85,
+        "speed": 0.5,
+        "duration_ms": 1000
+      }
+    },
+    {
+      "id": "enc_pressure",
+      "label": "Encounter \u2014 Pressure",
+      "start_ms": 315000,
+      "loop_end_ms": 360000,
+      "on_enter_fx": -1,
+      "loop": false,
+      "returns_to": "base",
+      "overlay_mode": "fresh",
+      "overlays": {
+        "ov1": false,
+        "ov2": false,
+        "narr": false
+      },
+      "led_background": {
+        "animation": "level",
+        "color": "0xFF0033",
+        "intensity": 0.8,
+        "speed": 0.7
+      },
+      "led_enter": {
+        "animation": "flash",
+        "color": "0xFF0033",
+        "intensity": 1.0,
+        "speed": 0.9,
+        "duration_ms": 800
+      }
+    },
+    {
+      "id": "enc_shift",
+      "label": "Encounter \u2014 Shift",
+      "start_ms": 360000,
+      "loop_end_ms": 405000,
+      "on_enter_fx": -1,
+      "loop": false,
+      "returns_to": "base",
+      "overlay_mode": "fresh",
+      "overlays": {
+        "ov1": false,
+        "ov2": false,
+        "narr": false
+      },
+      "led_background": {
+        "animation": "level",
+        "color": "0x00CCCC",
+        "intensity": 0.6,
+        "speed": 0.45
+      },
+      "led_enter": {
+        "animation": "comet",
+        "color": "0x00CCCC",
+        "intensity": 0.85,
+        "speed": 0.7,
+        "duration_ms": 1000
+      }
+    },
+    {
+      "id": "end_reflection",
+      "label": "End \u2014 Reflection",
+      "start_ms": 405000,
+      "loop_end_ms": 450000,
+      "on_enter_fx": -1,
+      "loop": false,
+      "returns_to": "",
+      "overlay_mode": "fresh",
+      "overlays": {
+        "ov1": false,
+        "ov2": false,
+        "narr": false
+      },
+      "led_background": {
+        "animation": "level",
+        "color": "0xFFFFFF",
+        "intensity": 0.4,
+        "speed": 0.2
+      },
+      "led_enter": {
+        "animation": "flash",
+        "color": "0xFFFFFF",
+        "intensity": 0.8,
+        "speed": 0.5,
+        "duration_ms": 1500
+      }
+    }
+  ],
+  "tags": [
+    {
+      "label": "Start tag (entrance)",
+      "type": "start",
+      "cooldown_ms": 2000,
+      "uids": [
+        "302FD9BE",
+        "A02AC14C",
+        "E03FCF4C"
+      ],
+      "actions": [
+        {
+          "do": "chapter",
+          "target": "base"
+        }
+      ]
+    },
+    {
+      "label": "Narrator toggle",
+      "type": "location",
+      "cooldown_ms": 1000,
+      "uids": [
+        "805ADABE",
+        "4037C04C",
+        "50B0CF4C"
+      ],
+      "actions": [
+        {
+          "do": "overlay",
+          "target": "narr",
+          "value": "toggle"
+        }
+      ]
+    },
+    {
+      "label": "Overlay 1 toggle",
+      "type": "location",
+      "cooldown_ms": 1000,
+      "uids": [
+        "50E8D3BE",
+        "5001C04C",
+        "10F6BE4C",
+        "40E5D3BE",
+        "D011D5BE",
+        "90AFD3BE"
+      ],
+      "actions": [
+        {
+          "do": "overlay",
+          "target": "ov1",
+          "value": "toggle"
+        }
+      ]
+    },
+    {
+      "label": "Overlay 2 toggle",
+      "type": "location",
+      "cooldown_ms": 1000,
+      "uids": [
+        "C019BE4C",
+        "904DCE4C",
+        "2015D5BE",
+        "E0B2D3BE",
+        "50ECD3BE",
+        "1019D5BE"
+      ],
+      "actions": [
+        {
+          "do": "overlay",
+          "target": "ov2",
+          "value": "toggle"
+        }
+      ]
+    },
+    {
+      "label": "Self (player 7) - recharge",
+      "type": "person",
+      "cooldown_ms": 4000,
+      "uids": [
+        "5038DABE",
+        "9049CE4C",
+        "5005C04C"
+      ],
+      "actions": [
+        {
+          "do": "chapter",
+          "target": "recharge"
+        }
+      ]
+    },
+    {
+      "label": "Meet player 1 -> enc_play",
+      "type": "person",
+      "cooldown_ms": 4000,
+      "uids": [
+        "5040DABE",
+        "9041CE4C",
+        "500DC04C"
+      ],
+      "actions": [
+        {
+          "do": "chapter",
+          "target": "enc_play"
+        }
+      ]
+    },
+    {
+      "label": "Meet player 2 -> enc_suspense",
+      "type": "person",
+      "cooldown_ms": 4000,
+      "uids": [
+        "1033D9BE",
+        "A032C14C",
+        "50B4CF4C"
+      ],
+      "actions": [
+        {
+          "do": "chapter",
+          "target": "enc_suspense"
+        }
+      ]
+    },
+    {
+      "label": "Meet player 3 -> enc_loneliness",
+      "type": "person",
+      "cooldown_ms": 4000,
+      "uids": [
+        "505EDABE",
+        "50ACCF4C",
+        "203FC04C"
+      ],
+      "actions": [
+        {
+          "do": "chapter",
+          "target": "enc_loneliness"
+        }
+      ]
+    },
+    {
+      "label": "Meet player 4 -> enc_nurture",
+      "type": "person",
+      "cooldown_ms": 4000,
+      "uids": [
+        "503CDABE",
+        "9045CE4C",
+        "5009C04C"
+      ],
+      "actions": [
+        {
+          "do": "chapter",
+          "target": "enc_nurture"
+        }
+      ]
+    },
+    {
+      "label": "Meet player 5 -> enc_pressure",
+      "type": "person",
+      "cooldown_ms": 4000,
+      "uids": [
+        "2031D9BE",
+        "E03BCF4C",
+        "A02EC14C"
+      ],
+      "actions": [
+        {
+          "do": "chapter",
+          "target": "enc_pressure"
+        }
+      ]
+    },
+    {
+      "label": "Meet player 6 -> enc_shift",
+      "type": "person",
+      "cooldown_ms": 4000,
+      "uids": [
+        "605CDABE",
+        "203BC04C",
+        "E037CF4C"
+      ],
+      "actions": [
+        {
+          "do": "chapter",
+          "target": "enc_shift"
+        }
+      ]
+    }
+  ]
+}

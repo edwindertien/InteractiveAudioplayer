@@ -1,0 +1,18 @@
+{
+  "_help": "Every physical tag, by role. Empty strings are spare slots that are not programmed yet - fill them in as you read the UIDs (tap the tag and watch '[Bridge] NFC: <uid>' in the serial monitor), then run generate_player_configs.py. Up to 8 tags per role. Planned counts: 3 per player, 3 start, 3 narrator, 6 overlay1, 6 overlay2.",
+
+  "players": {
+    "1": ["5040DABE", "9041CE4C", "500DC04C"],
+    "2": ["1033D9BE", "A032C14C", "50B4CF4C"],
+    "3": ["505EDABE", "50ACCF4C", "203FC04C"],
+    "4": ["503CDABE", "9045CE4C", "5009C04C"],
+    "5": ["2031D9BE", "E03BCF4C", "A02EC14C"],
+    "6": ["605CDABE", "203BC04C", "E037CF4C"],
+    "7": ["5038DABE", "9049CE4C", "5005C04C"]
+  },
+
+  "start":    ["302FD9BE", "A02AC14C", "E03FCF4C"],
+  "narrator": ["805ADABE", "4037C04C", "50B0CF4C"],
+  "overlay1": ["50E8D3BE", "5001C04C", "10F6BE4C", "40E5D3BE", "D011D5BE", "90AFD3BE"],
+  "overlay2": ["C019BE4C", "904DCE4C", "2015D5BE", "E0B2D3BE", "50ECD3BE", "1019D5BE"]
+}

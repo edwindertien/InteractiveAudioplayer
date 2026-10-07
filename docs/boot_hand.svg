@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="863" viewBox="0 0 1500 863"><defs>
+<marker id="m0" markerWidth="10" markerHeight="10" refX="8.5" refY="5" orient="auto" markerUnits="userSpaceOnUse"><path d="M1,1 L9,5 L1,9 Z" fill="#4b5563"/></marker>
+<marker id="m0s" markerWidth="10" markerHeight="10" refX="1.5" refY="5" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path d="M1,1 L9,5 L1,9 Z" fill="#4b5563"/></marker>
+<marker id="m1" markerWidth="10" markerHeight="10" refX="8.5" refY="5" orient="auto" markerUnits="userSpaceOnUse"><path d="M1,1 L9,5 L1,9 Z" fill="#dc2626"/></marker>
+<marker id="m1s" markerWidth="10" markerHeight="10" refX="1.5" refY="5" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path d="M1,1 L9,5 L1,9 Z" fill="#dc2626"/></marker>
+</defs>
+<rect width="1500" height="863" fill="#ffffff"/>
+<text x="24.0" y="34.0" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="20" fill="#1f2937" text-anchor="start" font-weight="bold">Hand unit — startup / wake sequence, then the main loop</text>
+<text x="24.0" y="56.0" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="12" fill="#6b7280" text-anchor="start" font-weight="normal">setup() on the ESP32-S3; sleep and wake use the button on GPIO 9.</text>
+<rect x="70.0" y="84.0" width="640.0" height="52.0" rx="9" fill="#ffedd5" stroke="#ea580c" stroke-width="1.6"/>
+<circle cx="48.0" cy="110.0" r="11" fill="#374151" stroke="none" stroke-width="1"/>
+<text x="48.0" y="114.0" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="11" fill="#fff" text-anchor="middle" font-weight="bold">1</text>
+<text x="84.0" y="106.0" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="13" fill="#7c2d12" text-anchor="start" font-weight="bold">CPU 80 MHz · Serial 115200 · banner</text>
+<text x="84.0" y="124.0" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="11" fill="#1f2937" text-anchor="start" font-weight="normal">80 MHz is plenty and runs much cooler than 240 MHz</text>
+<polyline points="390.0,135.9 390.0,149.9" fill="none" stroke="#4b5563" stroke-width="1.8" marker-end="url(#m0)"/>
+<rect x="70.0" y="149.9" width="640.0" height="67.9" rx="9" fill="#ffedd5" stroke="#ea580c" stroke-width="1.6"/>
+<circle cx="48.0" cy="183.9" r="11" fill="#374151" stroke="none" stroke-width="1"/>
+<text x="48.0" y="187.9" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="11" fill="#fff" text-anchor="middle" font-weight="bold">2</text>
+<text x="84.0" y="171.9" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="13" fill="#7c2d12" text-anchor="start" font-weight="bold">Button and wake reason</text>
+<text x="84.0" y="189.9" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="11" fill="#1f2937" text-anchor="start" font-weight="normal">released the pin hold latched before sleep</text>
+<text x="84.0" y="205.9" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="11" fill="#1f2937" text-anchor="start" font-weight="normal">did the unit wake from a button press?</text>
+<rect x="870.0" y="149.9" width="470.0" height="67.9" rx="9" fill="#fee2e2" stroke="#dc2626" stroke-width="1.6"/>
+<text x="884.0" y="171.9" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="12" fill="#7f1d1d" text-anchor="start" font-weight="bold">Go straight back to deep sleep</text>
+<text x="884.0" y="189.9" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="11" fill="#1f2937" text-anchor="start" font-weight="normal">press the button to start the unit</text>
+<polyline points="710.0,183.9 870.0,183.9" fill="none" stroke="#dc2626" stroke-width="1.8" stroke-dasharray="5,4" marker-end="url(#m1)"/>
+<text x="718.0" y="176.9" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="10.5" fill="#7f1d1d" text-anchor="start" font-weight="bold">no: power-up or reset</text>
+<polyline points="390.0,217.8 390.0,231.8" fill="none" stroke="#4b5563" stroke-width="1.8" marker-end="url(#m0)"/>
+<rect x="70.0" y="231.8" width="640.0" height="52.0" rx="9" fill="#ffedd5" stroke="#ea580c" stroke-width="1.6"/>
+<circle cx="48.0" cy="257.8" r="11" fill="#374151" stroke="none" stroke-width="1"/>
+<text x="48.0" y="261.8" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="11" fill="#fff" text-anchor="middle" font-weight="bold">3</text>
+<text x="84.0" y="253.8" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="13" fill="#7c2d12" text-anchor="start" font-weight="bold">Wait for the button to be released</text>
+<text x="84.0" y="271.9" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="11" fill="#1f2937" text-anchor="start" font-weight="normal">a button wake is confirmed, then the real start-up continues</text>
+<polyline points="390.0,283.8 390.0,297.8" fill="none" stroke="#4b5563" stroke-width="1.8" marker-end="url(#m0)"/>
+<rect x="70.0" y="297.8" width="640.0" height="67.9" rx="9" fill="#ffedd5" stroke="#ea580c" stroke-width="1.6"/>
+<circle cx="48.0" cy="331.8" r="11" fill="#374151" stroke="none" stroke-width="1"/>
+<text x="48.0" y="335.8" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="11" fill="#fff" text-anchor="middle" font-weight="bold">4</text>
+<text x="84.0" y="319.8" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="13" fill="#7c2d12" text-anchor="start" font-weight="bold">Motor and distance sensor</text>
+<text x="84.0" y="337.8" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="11" fill="#1f2937" text-anchor="start" font-weight="normal">motor PWM · VL53L0X XSHUT toggle + init</text>
+<text x="84.0" y="353.8" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="11" fill="#1f2937" text-anchor="start" font-weight="normal">this unit's stored tof settings (if any) are applied</text>
+<polyline points="390.0,365.7 390.0,379.7" fill="none" stroke="#4b5563" stroke-width="1.8" marker-end="url(#m0)"/>
+<rect x="70.0" y="379.7" width="640.0" height="67.9" rx="9" fill="#ffedd5" stroke="#ea580c" stroke-width="1.6"/>
+<circle cx="48.0" cy="413.7" r="11" fill="#374151" stroke="none" stroke-width="1"/>
+<text x="48.0" y="417.7" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="11" fill="#fff" text-anchor="middle" font-weight="bold">5</text>
+<text x="84.0" y="401.7" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="13" fill="#7c2d12" text-anchor="start" font-weight="bold">LED ring, status LED, battery</text>
+<text x="84.0" y="419.7" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="11" fill="#1f2937" text-anchor="start" font-weight="normal">16-LED ring at brightness 40 · status LED (GPIO 48)</text>
+<text x="84.0" y="435.7" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="11" fill="#1f2937" text-anchor="start" font-weight="normal">battery offset loaded; USB or battery detected</text>
+<polyline points="390.0,447.6 390.0,461.6" fill="none" stroke="#4b5563" stroke-width="1.8" marker-end="url(#m0)"/>
+<rect x="70.0" y="461.6" width="640.0" height="52.0" rx="9" fill="#ffedd5" stroke="#ea580c" stroke-width="1.6"/>
+<circle cx="48.0" cy="487.6" r="11" fill="#374151" stroke="none" stroke-width="1"/>
+<text x="48.0" y="491.6" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="11" fill="#fff" text-anchor="middle" font-weight="bold">6</text>
+<text x="84.0" y="483.6" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="13" fill="#7c2d12" text-anchor="start" font-weight="bold">NFC reader</text>
+<text x="84.0" y="501.6" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="11" fill="#1f2937" text-anchor="start" font-weight="normal">PN532 reset on GPIO 10, then UART init; UIDs go to a queue</text>
+<polyline points="390.0,513.6 390.0,527.6" fill="none" stroke="#4b5563" stroke-width="1.8" marker-end="url(#m0)"/>
+<rect x="70.0" y="527.6" width="640.0" height="67.9" rx="9" fill="#ffedd5" stroke="#ea580c" stroke-width="1.6"/>
+<circle cx="48.0" cy="561.5" r="11" fill="#374151" stroke="none" stroke-width="1"/>
+<text x="48.0" y="565.5" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="11" fill="#fff" text-anchor="middle" font-weight="bold">7</text>
+<text x="84.0" y="549.6" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="13" fill="#7c2d12" text-anchor="start" font-weight="bold">ESP-NOW</text>
+<text x="84.0" y="567.6" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="11" fill="#1f2937" text-anchor="start" font-weight="normal">Wi-Fi station mode, ESP-NOW init, stored pairing loaded from flash</text>
+<text x="84.0" y="583.5" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="11" fill="#1f2937" text-anchor="start" font-weight="normal">no pairing → status LED red until you pair (see pairing figure)</text>
+<polyline points="390.0,595.5 390.0,609.5" fill="none" stroke="#4b5563" stroke-width="1.8" marker-end="url(#m0)"/>
+<rect x="70.0" y="609.5" width="640.0" height="67.9" rx="9" fill="#ffedd5" stroke="#ea580c" stroke-width="1.6"/>
+<circle cx="48.0" cy="643.4" r="11" fill="#374151" stroke="none" stroke-width="1"/>
+<text x="48.0" y="647.4" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="11" fill="#fff" text-anchor="middle" font-weight="bold">8</text>
+<text x="84.0" y="631.5" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="13" fill="#7c2d12" text-anchor="start" font-weight="bold">Ready signal</text>
+<text x="84.0" y="649.5" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="11" fill="#1f2937" text-anchor="start" font-weight="normal">ring solid GREEN: NFC and distance sensor OK · AMBER: one is missing</text>
+<text x="84.0" y="665.4" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="11" fill="#1f2937" text-anchor="start" font-weight="normal">two short motor pulses, ~300 ms, then the ring goes dark</text>
+<polyline points="390.0,677.4 390.0,697.4" fill="none" stroke="#4b5563" stroke-width="1.8" marker-end="url(#m0)"/>
+<rect x="70.0" y="697.4" width="1360.0" height="125.8" rx="9" fill="#f3f4f6" stroke="#6b7280" stroke-width="1.6" stroke-dasharray="7,5"/>
+<text x="84.0" y="719.4" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="13" fill="#1f2937" text-anchor="start" font-weight="bold">loop() — repeated continuously</text>
+<text x="84.0" y="739.4" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="11" fill="#1f2937" text-anchor="start" font-weight="normal">power: hold the button 2 s → sleep · tap → confirm a pending pairing</text>
+<text x="84.0" y="755.3" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="11" fill="#1f2937" text-anchor="start" font-weight="normal">battery checked every 10 s: low &lt; 3.6 V (orange), critical &lt; 3.3 V (sleep)</text>
+<text x="84.0" y="771.2" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="11" fill="#1f2937" text-anchor="start" font-weight="normal">status LED: red / yellow / green link, blue tag flash, blue blink pairing</text>
+<text x="84.0" y="787.2" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="11" fill="#1f2937" text-anchor="start" font-weight="normal">distance sensor read without blocking</text>
+<text x="84.0" y="803.1" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="11" fill="#1f2937" text-anchor="start" font-weight="normal">touch state machine: connect → silence period → release</text>
+<text x="760.0" y="739.4" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="11" fill="#1f2937" text-anchor="start" font-weight="normal">vibration follows proximity (about 20-300 mm), when idle</text>
+<text x="760.0" y="755.3" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="11" fill="#1f2937" text-anchor="start" font-weight="normal">NFC UID from the queue → ESP-NOW NFC message to the body</text>
+<text x="760.0" y="771.2" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="11" fill="#1f2937" text-anchor="start" font-weight="normal">if no touch active: motor double-click, TOUCH message (= confirmed), white flash</text>
+<text x="760.0" y="787.2" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="11" fill="#1f2937" text-anchor="start" font-weight="normal">proximity message every 100 ms · LED ring at 25 fps · serial commands</text>
+</svg>

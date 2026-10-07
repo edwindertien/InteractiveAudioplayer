@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="892" viewBox="0 0 1500 892"><defs>
+<marker id="m0" markerWidth="10" markerHeight="10" refX="8.5" refY="5" orient="auto" markerUnits="userSpaceOnUse"><path d="M1,1 L9,5 L1,9 Z" fill="#ea580c"/></marker>
+<marker id="m0s" markerWidth="10" markerHeight="10" refX="1.5" refY="5" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path d="M1,1 L9,5 L1,9 Z" fill="#ea580c"/></marker>
+<marker id="m1" markerWidth="10" markerHeight="10" refX="8.5" refY="5" orient="auto" markerUnits="userSpaceOnUse"><path d="M1,1 L9,5 L1,9 Z" fill="#16a34a"/></marker>
+<marker id="m1s" markerWidth="10" markerHeight="10" refX="1.5" refY="5" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path d="M1,1 L9,5 L1,9 Z" fill="#16a34a"/></marker>
+<marker id="m2" markerWidth="10" markerHeight="10" refX="8.5" refY="5" orient="auto" markerUnits="userSpaceOnUse"><path d="M1,1 L9,5 L1,9 Z" fill="#9333ea"/></marker>
+<marker id="m2s" markerWidth="10" markerHeight="10" refX="1.5" refY="5" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path d="M1,1 L9,5 L1,9 Z" fill="#9333ea"/></marker>
+<marker id="m3" markerWidth="10" markerHeight="10" refX="8.5" refY="5" orient="auto" markerUnits="userSpaceOnUse"><path d="M1,1 L9,5 L1,9 Z" fill="#dc2626"/></marker>
+<marker id="m3s" markerWidth="10" markerHeight="10" refX="1.5" refY="5" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path d="M1,1 L9,5 L1,9 Z" fill="#dc2626"/></marker>
+</defs>
+<rect width="1500" height="892" fill="#ffffff"/>
+<text x="24.0" y="34.0" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="20" fill="#1f2937" text-anchor="start" font-weight="bold">What happens when a tag is tapped</text>
+<text x="24.0" y="56.0" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="12" fill="#6b7280" text-anchor="start" font-weight="normal">ESP-NOW between hand unit and body bridge, JSON lines over UART from the body bridge to the Teensy.</text>
+<line x1="140.0" y1="128.0" x2="140.0" y2="862.0" stroke="#d1d5db" stroke-width="1.4" stroke-dasharray="5,4"/>
+<line x1="500.0" y1="128.0" x2="500.0" y2="862.0" stroke="#d1d5db" stroke-width="1.4" stroke-dasharray="5,4"/>
+<line x1="900.0" y1="128.0" x2="900.0" y2="862.0" stroke="#d1d5db" stroke-width="1.4" stroke-dasharray="5,4"/>
+<line x1="1330.0" y1="128.0" x2="1330.0" y2="862.0" stroke="#d1d5db" stroke-width="1.4" stroke-dasharray="5,4"/>
+<text x="24.0" y="170.0" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="11.5" fill="#6b7280" text-anchor="start" font-weight="bold">continuously</text>
+<line x1="24.0" y1="176.0" x2="1476.0" y2="176.0" stroke="#e5e7eb" stroke-width="1"/>
+<polyline points="500.0,230.0 900.0,230.0" fill="none" stroke="#ea580c" stroke-width="1.8" marker-end="url(#m0)"/>
+<rect x="639.4" y="195.5" width="121.1" height="18.5" rx="4" fill="#ffffff" stroke="none" stroke-width="0" opacity="0.92"/>
+<text x="700.0" y="208.0" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="11.5" fill="#1f2937" text-anchor="middle" font-weight="bold">PROXIMITY  0x01</text>
+<text x="700.0" y="222.0" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="10" fill="#6b7280" text-anchor="middle" font-weight="normal">every 100 ms  (distance in mm, touch state)</text>
+<polyline points="900.0,290.0 1330.0,290.0" fill="none" stroke="#16a34a" stroke-width="1.8" marker-end="url(#m1)"/>
+<rect x="1036.2" y="255.5" width="157.6" height="18.5" rx="4" fill="#ffffff" stroke="none" stroke-width="0" opacity="0.92"/>
+<text x="1115.0" y="268.0" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="11.5" fill="#1f2937" text-anchor="middle" font-weight="bold">{"t":"p","d":150,"s":0}</text>
+<text x="1115.0" y="282.0" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="10" fill="#6b7280" text-anchor="middle" font-weight="normal">informational — not acted on</text>
+<polyline points="900.0,350.0 500.0,350.0" fill="none" stroke="#16a34a" stroke-width="1.8" stroke-dasharray="6,4" marker-end="url(#m1)"/>
+<rect x="637.8" y="315.5" width="124.5" height="18.5" rx="4" fill="#ffffff" stroke="none" stroke-width="0" opacity="0.92"/>
+<text x="700.0" y="328.0" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="11.5" fill="#1f2937" text-anchor="middle" font-weight="bold">HEARTBEAT  0x12</text>
+<text x="700.0" y="342.0" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="10" fill="#6b7280" text-anchor="middle" font-weight="normal">every 1 s — keeps the hand unit's LED green</text>
+<text x="24.0" y="384.0" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="11.5" fill="#6b7280" text-anchor="start" font-weight="bold">a tag is tapped</text>
+<line x1="24.0" y1="390.0" x2="1476.0" y2="390.0" stroke="#e5e7eb" stroke-width="1"/>
+<polyline points="140.0,444.0 500.0,444.0" fill="none" stroke="#9333ea" stroke-width="1.8" marker-end="url(#m2)"/>
+<rect x="304.2" y="409.5" width="31.5" height="18.5" rx="4" fill="#ffffff" stroke="none" stroke-width="0" opacity="0.92"/>
+<text x="320.0" y="422.0" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="11.5" fill="#1f2937" text-anchor="middle" font-weight="bold">tap</text>
+<text x="320.0" y="436.0" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="10" fill="#6b7280" text-anchor="middle" font-weight="normal">the PN532 reads the UID</text>
+<polyline points="500.0,504.0 900.0,504.0" fill="none" stroke="#ea580c" stroke-width="1.8" marker-end="url(#m0)"/>
+<rect x="662.3" y="469.5" width="75.3" height="18.5" rx="4" fill="#ffffff" stroke="none" stroke-width="0" opacity="0.92"/>
+<text x="700.0" y="482.0" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="11.5" fill="#1f2937" text-anchor="middle" font-weight="bold">NFC  0x02</text>
+<text x="700.0" y="496.0" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="10" fill="#6b7280" text-anchor="middle" font-weight="normal">raw detection of a tag in range</text>
+<polyline points="900.0,564.0 1330.0,564.0" fill="none" stroke="#16a34a" stroke-width="1.8" marker-end="url(#m1)"/>
+<rect x="1000.4" y="529.5" width="229.1" height="18.5" rx="4" fill="#ffffff" stroke="none" stroke-width="0" opacity="0.92"/>
+<text x="1115.0" y="542.0" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="11.5" fill="#1f2937" text-anchor="middle" font-weight="bold">{"t":"n","u":"DE0CC698","d":150}</text>
+<text x="1115.0" y="556.0" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="10" fill="#6b7280" text-anchor="middle" font-weight="normal">logged only — this is how you discover a tag's UID</text>
+<rect x="370.0" y="580.0" width="260.0" height="52.0" rx="7" fill="#ffedd5" stroke="#ea580c" stroke-width="1.3"/>
+<text x="382.0" y="598.0" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="10.5" fill="#1f2937" text-anchor="start" font-weight="normal">touch state machine is idle →</text>
+<text x="382.0" y="613.0" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="10.5" fill="#1f2937" text-anchor="start" font-weight="normal">motor double-click + white flash</text>
+<polyline points="500.0,688.0 900.0,688.0" fill="none" stroke="#ea580c" stroke-width="1.8" marker-end="url(#m0)"/>
+<rect x="652.8" y="653.5" width="94.5" height="18.5" rx="4" fill="#ffffff" stroke="none" stroke-width="0" opacity="0.92"/>
+<text x="700.0" y="666.0" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="11.5" fill="#1f2937" text-anchor="middle" font-weight="bold">TOUCH  0x03</text>
+<text x="700.0" y="680.0" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="10" fill="#6b7280" text-anchor="middle" font-weight="normal">= a confirmed connection (once per genuine tap)</text>
+<polyline points="900.0,748.0 1330.0,748.0" fill="none" stroke="#dc2626" stroke-width="1.8" marker-end="url(#m3)"/>
+<rect x="1027.7" y="713.5" width="174.6" height="18.5" rx="4" fill="#ffffff" stroke="none" stroke-width="0" opacity="0.92"/>
+<text x="1115.0" y="726.0" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="11.5" fill="#1f2937" text-anchor="middle" font-weight="bold">{"t":"c","u":"DE0CC698"}</text>
+<text x="1115.0" y="740.0" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="10" fill="#6b7280" text-anchor="middle" font-weight="normal">the only message that dispatches</text>
+<rect x="815.0" y="764.0" width="600.0" height="82.0" rx="7" fill="#dbeafe" stroke="#2563eb" stroke-width="1.3"/>
+<text x="827.0" y="782.0" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="10.5" fill="#1f2937" text-anchor="start" font-weight="normal">look up the UID → role (start, person, narrator, overlay)</text>
+<text x="827.0" y="797.0" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="10.5" fill="#1f2937" text-anchor="start" font-weight="normal">per-tag cooldown · show over? · ending? · encounter lock?</text>
+<text x="827.0" y="812.0" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="10.5" fill="#1f2937" text-anchor="start" font-weight="normal">→ chapter switch with crossfade · overlay toggle · effect · LED</text>
+<text x="827.0" y="827.0" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="10.5" fill="#1f2937" text-anchor="start" font-weight="normal">'connect' or 'denied' sound; general audio ducks while it plays</text>
+<rect x="50.0" y="84.0" width="180.0" height="44.0" rx="8" fill="#f3e8ff" stroke="#9333ea" stroke-width="1.6"/>
+<text x="140.0" y="103.0" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="12.5" fill="#581c87" text-anchor="middle" font-weight="bold">NFC tag</text>
+<text x="140.0" y="118.0" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="9.5" fill="#6b7280" text-anchor="middle" font-weight="normal"></text>
+<rect x="410.0" y="84.0" width="180.0" height="44.0" rx="8" fill="#ffedd5" stroke="#ea580c" stroke-width="1.6"/>
+<text x="500.0" y="103.0" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="12.5" fill="#7c2d12" text-anchor="middle" font-weight="bold">Hand unit</text>
+<text x="500.0" y="118.0" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="9.5" fill="#6b7280" text-anchor="middle" font-weight="normal">ESP32-S3 + PN532</text>
+<rect x="810.0" y="84.0" width="180.0" height="44.0" rx="8" fill="#dcfce7" stroke="#16a34a" stroke-width="1.6"/>
+<text x="900.0" y="103.0" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="12.5" fill="#14532d" text-anchor="middle" font-weight="bold">Body bridge</text>
+<text x="900.0" y="118.0" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="9.5" fill="#6b7280" text-anchor="middle" font-weight="normal">ESP32-S3</text>
+<rect x="1240.0" y="84.0" width="180.0" height="44.0" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1.6"/>
+<text x="1330.0" y="103.0" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="12.5" fill="#1e3a8a" text-anchor="middle" font-weight="bold">Teensy player</text>
+<text x="1330.0" y="118.0" font-family="DejaVu Sans, Verdana, Arial, sans-serif" font-size="9.5" fill="#6b7280" text-anchor="middle" font-weight="normal">main.cpp</text>
+</svg>
